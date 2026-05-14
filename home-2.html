@@ -326,8 +326,8 @@
   <!-- Logging Pipeline Flow Animation -->
   <section class="reveal glass" style="margin: 6rem 0; border-radius: 0; background: rgba(15, 23, 42, 0.8);">
     <div class="container text-center">
-      <h2>Intelligent Log Pipeline</h2>
-      <p style="max-width: 600px; margin: 0 auto; color: #94a3b8;">High-throughput log ingestion, parsing, and indexing
+      <h2 class="text-center">Intelligent Log Pipeline</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: #ffffff;" class="text-center">High-throughput log ingestion, parsing, and indexing
         pipeline designed for petabyte-scale observability.</p>
 
       <div class="pipeline-flow">
@@ -363,7 +363,7 @@
     </div>
     <div
       style="position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+      <img src="assets/images/service-grafana.png"
         alt="Grafana Preview" style="width: 100%; display: block; filter: brightness(0.8) contrast(1.2);">
       <div
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(2,6,23,1), transparent); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 3rem;">
@@ -373,30 +373,54 @@
     </div>
   </section>
 
-  <!-- Client Success Metrics -->
-  <section class="reveal container" style="margin-bottom: 6rem;">
-    <div class="grid-2">
-      <div class="bento-item text-center" style="display: flex; flex-direction: column; justify-content: center;">
-        <h2 style="font-size: 4rem; color: var(--accent-color); margin-bottom: 0;">10x</h2>
-        <h3>Faster Root Cause Analysis</h3>
-        <p>Mean Time To Resolution (MTTR) reduced drastically across all our enterprise clients.</p>
+  <!-- Strategic Reliability Framework -->
+  <section class="reveal container" style="margin-bottom: 6rem; border-top: 1px solid var(--border-color); padding-top: 6rem;">
+    <div class="section-header text-center">
+      <span class="section-subtitle">Methodology</span>
+      <h2>Our Strategic Reliability Framework</h2>
+      <p>A holistic approach to observability that goes beyond simple metrics.</p>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 4rem; margin-top: 4rem;">
+      <div style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--secondary-color);">01. Infrastructure Audit</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">We begin by analyzing your current monitoring gaps and alert noise. Our deep-dive audit identifies blind spots in your distributed systems before they become outages.</p>
+        </div>
+        <div style="flex: 1; min-width: 300px; border-left: 2px solid var(--secondary-color); padding-left: 4rem;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Latency Profiling & Optimization</li>
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Resource Bottleneck Identification</li>
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Alert Fatigue Reduction Analysis</li>
+          </ul>
+        </div>
       </div>
-      <div class="grid-2">
-        <div class="bento-item text-center">
-          <h3 style="color: var(--secondary-color); font-size: 2.5rem; margin-bottom: 0.5rem;">50+</h3>
-          <p>Enterprise Stacks</p>
+
+      <div style="display: flex; align-items: center; gap: 4rem; flex-direction: row-reverse; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--accent-color);">02. Stack Optimization</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">Implementation of high-performance Prometheus exporters, specialized Grafana dashboards, and multi-tenant logging pipelines tailored for your specific scale.</p>
         </div>
-        <div class="bento-item text-center">
-          <h3 style="color: #a855f7; font-size: 2.5rem; margin-bottom: 0.5rem;">5B+</h3>
-          <p>5B+ Metrics/Sec</p>
+        <div style="flex: 1; min-width: 300px; border-right: 2px solid var(--accent-color); padding-right: 4rem; text-align: right;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; align-items: center; justify-content: flex-end;">Custom Exporter Development <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
+            <li style="display: flex; align-items: center; justify-content: flex-end;">High-Cardinality Query Tuning <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
+            <li style="display: flex; align-items: center; justify-content: flex-end;">Optimized Storage Retention Policies <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
+          </ul>
         </div>
-        <div class="bento-item text-center">
-          <h3 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 0.5rem;">100%</h3>
-          <p>100% SLO Adherence</p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #fbbf24;">03. Continuous SRE Support</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">We don't just build it and leave. Our ongoing SRE consulting ensures your team is empowered with the right runbooks and automated incident response strategies.</p>
         </div>
-        <div class="bento-item text-center">
-          <h3 style="color: var(--accent-color); font-size: 2.5rem; margin-bottom: 0.5rem;">24/7</h3>
-          <p>24/7 SRE Coverage</p>
+        <div style="flex: 1; min-width: 300px; border-left: 2px solid #fbbf24; padding-left: 4rem;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> SLI/SLO Performance Management</li>
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> Automated Incident Post-mortems</li>
+            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> Proactive Chaos Engineering</li>
+          </ul>
         </div>
       </div>
     </div>
