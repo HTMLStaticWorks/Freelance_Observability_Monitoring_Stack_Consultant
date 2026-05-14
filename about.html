@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero / Company Intro -->
+  <section class="hero reveal" style="min-height: 60vh; padding-top: 120px; align-items: flex-start; background: linear-gradient(135deg, rgba(59,130,246,0.05), rgba(16,185,129,0.05));">
+    <div class="container text-center">
+      <span class="badge" style="margin-bottom: 1rem;">Who We Are</span>
+      <h1>Architects of <span class="text-gradient">Reliability</span></h1>
+      <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">We are a specialized consultancy dedicated to transforming chaotic infrastructure into transparent, highly observable, and autonomous systems. We bring enterprise-grade SRE practices to growing tech companies.</p>
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" alt="Team Working" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+    </div>
+  </section>
+
+  <!-- Section 2: Mission & Vision -->
+  <section class="reveal container">
+    <div class="grid-2">
+      <div class="card glass tilt-card">
+        <div class="card-icon" style="background: rgba(59,130,246,0.1); color: var(--secondary-color);"><i class="fas fa-bullseye"></i></div>
+        <h3 class="card-title">Our Mission</h3>
+        <p class="card-desc">To democratize enterprise-grade observability. We believe every engineering team deserves deep visibility into their stack, eliminating blind spots and empowering them to ship faster with confidence.</p>
+      </div>
+      <div class="card glass tilt-card">
+        <div class="card-icon" style="background: rgba(16,185,129,0.1); color: var(--accent-color);"><i class="fas fa-eye"></i></div>
+        <h3 class="card-title">Our Vision</h3>
+        <p class="card-desc">A future where infrastructure incidents are predicted and resolved automatically before users are affected. We strive to make "zero downtime" the standard, not the exception.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: SRE Philosophy -->
+  <section class="reveal glass" style="background: var(--primary-color); color: #fff;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Abstract Code" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 0 40px rgba(59,130,246,0.5);">
+        </div>
+        <div>
+          <span class="section-subtitle" style="color: var(--accent-color);">The Core Tenets</span>
+          <h2 style="color: #fff;">Our SRE Philosophy</h2>
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem;">We approach operations as a software engineering problem. Toil is our enemy, automation is our tool, and reliability is our product.</p>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+              <i class="fas fa-balance-scale" style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 5px;"></i>
+              <div>
+                <h4 style="margin-bottom: 0.5rem;">Error Budgets are Sacred</h4>
+                <p style="color: rgba(255,255,255,0.6); margin: 0;">We balance feature velocity with reliability using strict mathematical models.</p>
+              </div>
+            </li>
+            <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+              <i class="fas fa-cogs" style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 5px;"></i>
+              <div>
+                <h4 style="margin-bottom: 0.5rem;">Automate Everything</h4>
+                <p style="color: rgba(255,255,255,0.6); margin: 0;">If it needs to be done more than twice, we write a script or operator for it.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem;">
+              <i class="fas fa-search-plus" style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 5px;"></i>
+              <div>
+                <h4 style="margin-bottom: 0.5rem;">Symptoms over Causes</h4>
+                <p style="color: rgba(255,255,255,0.6); margin: 0;">Alerts should trigger based on user-facing symptoms, not underlying causes.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Infrastructure Journey Timeline -->
+  <section class="reveal container text-center">
+    <div class="section-header">
+      <span class="section-subtitle">Our History</span>
+      <h2>Evolution of our Stack</h2>
+    </div>
+    <div style="position: relative; max-width: 800px; margin: 0 auto; text-align: left;">
+      <div style="position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--secondary-color);"></div>
+      
+      <div style="position: relative; margin-bottom: 3rem; padding-left: 50px;">
+        <div style="position: absolute; left: 11px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 4px solid var(--bg-color);"></div>
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">2018</h4>
+        <h3>The Monolith Era</h3>
+        <p>Started by optimizing legacy Nagios setups and simple ELK stacks for monolithic architectures.</p>
+      </div>
+      
+      <div style="position: relative; margin-bottom: 3rem; padding-left: 50px;">
+        <div style="position: absolute; left: 11px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 4px solid var(--bg-color);"></div>
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">2021</h4>
+        <h3>Cloud Native Transition</h3>
+        <p>Embraced Kubernetes and Prometheus, building massive scalable metrics pipelines for microservices.</p>
+      </div>
+
+      <div style="position: relative; margin-bottom: 3rem; padding-left: 50px;">
+        <div style="position: absolute; left: 11px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 4px solid var(--bg-color);"></div>
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">2024</h4>
+        <h3>OpenTelemetry Adoption</h3>
+        <p>Transitioned fully to vendor-neutral OpenTelemetry standards for unified metrics, logs, and traces.</p>
+      </div>
+
+      <div style="position: relative; padding-left: 50px;">
+        <div style="position: absolute; left: 11px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-color); border: 4px solid var(--bg-color); box-shadow: 0 0 10px var(--accent-color);"></div>
+        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">2026</h4>
+        <h3>AI-Driven Observability</h3>
+        <p>Integrating machine learning models for predictive autoscaling and automated incident response.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Team Cards (4 cards) -->
+  <section class="reveal glass" style="margin-bottom: 0;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Leadership</span>
+        <h2>Meet The Experts</h2>
+        <p>Senior SREs and Infrastructure Architects</p>
+      </div>
+      <div class="grid-4">
+        <!-- Team Card 1 -->
+        <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Lead SRE" style="width: 100%; height: 250px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem;">Alex Mercer</h3>
+            <p style="color: var(--secondary-color); font-weight: 600;">Lead SRE Consultant</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Team Card 2 -->
+        <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Observability Architect" style="width: 100%; height: 250px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem;">Sarah Chen</h3>
+            <p style="color: var(--secondary-color); font-weight: 600;">Observability Architect</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Team Card 3 -->
+        <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="DevOps Engineer" style="width: 100%; height: 250px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem;">David Kumar</h3>
+            <p style="color: var(--secondary-color); font-weight: 600;">Sr. DevOps Engineer</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Team Card 4 -->
+        <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Grafana Expert" style="width: 100%; height: 250px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem;">Elena Rossi</h3>
+            <p style="color: var(--secondary-color); font-weight: 600;">Grafana UX Specialist</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

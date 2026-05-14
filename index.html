@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Freelance Observability & Monitoring Stack Consultant</title>
+  <meta name="description"
+    content="Premium SRE, DevOps, and Monitoring Consulting. Optimize your infrastructure with cutting-edge observability solutions.">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i
+            class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero reveal">
+    <div class="hero-bg-particles"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="badge">SRE & DevOps Consulting</span>
+        <h1>Master Your <span class="text-gradient">Infrastructure</span> Observability</h1>
+        <p>End-to-end monitoring solutions, Prometheus metrics, and Grafana UI designs to eliminate alert fatigue and
+          ensure 99.99% uptime.</p>
+        <div class="hero-btns">
+          <a href="services.html" class="btn btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn btn-outline">Book Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid (4 cards) -->
+  <section class="reveal glass" style="margin: 2rem 0; border-radius: 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Core Expertise</span>
+        <h2>Comprehensive Observability Services</h2>
+        <p>From metrics to tracing, we build the ultimate stack for your needs.</p>
+      </div>
+      <div class="grid-4 grid-flush">
+        <!-- Card 1 -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/service-prometheus.png" alt="Prometheus Setup">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Prometheus Setup</h3>
+            <p class="card-desc">Robust metrics collection and storage optimized for high-cardinality data.</p>
+            <div class="card-action">
+              <a href="services-details.html" class="btn btn-outline">Learn More <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/service-grafana.png" alt="Grafana Design">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Grafana Design</h3>
+            <p class="card-desc">Visually stunning, highly functional dashboards for real-time insights.</p>
+            <div class="card-action">
+              <a href="services-details.html" class="btn btn-outline">Learn More <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/service-logging.png" alt="Logging Pipelines">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Logging Pipelines</h3>
+            <p class="card-desc">Centralized ELK/EFK stack configuration for rapid log analysis and querying.</p>
+            <div class="card-action">
+              <a href="services-details.html" class="btn btn-outline">Learn More <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/service-slo.png" alt="SLI/SLO Consulting">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">SLI/SLO Consulting</h3>
+            <p class="card-desc">Define, measure, and optimize your Service Level Objectives efficiently.</p>
+            <div class="card-action">
+              <a href="services-details.html" class="btn btn-outline">Learn More <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLI/SLO Workflow Timeline -->
+  <section class="reveal container">
+    <div class="section-header">
+      <span class="section-subtitle">Methodology</span>
+      <h2>SLI/SLO Workflow Implementation</h2>
+    </div>
+    <div class="grid-2" style="align-items: center;">
+      <div class="hero-image">
+        <img src="assets/images/workflow-slo.png" alt="SLI/SLO Data Visualization" class="skeleton"
+          style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      </div>
+      <div>
+        <h3 style="margin-bottom: 1.5rem;">Precision Engineering for Maximum Uptime</h3>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">
+          Our SLI/SLO methodology is built on data-driven decision-making. We move beyond simple "uptime" metrics to
+          measure what truly matters to your users. By defining precise Service Level Indicators (SLIs), we establish a
+          clear baseline for reliability.
+        </p>
+        <div class="workflow-highlights">
+          <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+            <i class="fas fa-bullseye"
+              style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+            <div>
+              <h4 style="margin-bottom: 0.25rem;">User-Centric Metrics</h4>
+              <p style="font-size: 0.95rem; color: var(--text-light);">Aligning technical monitoring with actual user
+                journeys and business objectives.</p>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+            <i class="fas fa-shield-alt"
+              style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+            <div>
+              <h4 style="margin-bottom: 0.25rem;">Error Budget Management</h4>
+              <p style="font-size: 0.95rem; color: var(--text-light);">Data-backed confidence to ship features faster
+                without compromising stability.</p>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+            <i class="fas fa-chart-line"
+              style="color: var(--secondary-color); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+            <div>
+              <h4 style="margin-bottom: 0.25rem;">Predictive Alerting</h4>
+              <p style="font-size: 0.95rem; color: var(--text-light);">Reducing noise by alerting on burn rates rather
+                than static, brittle thresholds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prometheus Metrics Showcase -->
+  <section class="reveal glass" style="background: var(--primary-color); color: #fff;">
+    <div class="container text-center">
+      <div class="section-header" style="color: #fff;">
+        <span class="section-subtitle" style="color: var(--accent-color);">Data At Scale</span>
+        <h2 style="color: #fff;">Prometheus Metrics Processing</h2>
+        <p style="color: rgba(255,255,255,0.7);">Handling millions of active time series with sub-second query latency.
+        </p>
+      </div>
+      <div class="grid-4" style="margin-top: 3rem;">
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="500">0+</div>
+          <p style="color: rgba(255,255,255,0.7);">Clusters Monitored</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="10000" style="color: var(--accent-color);">0+</div>
+          <p style="color: rgba(255,255,255,0.7);">Dashboards Created</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="99">0+</div>
+          <p style="color: rgba(255,255,255,0.7);">% Alert Noise Reduction</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="24" style="color: var(--accent-color);">0+</div>
+          <p style="color: rgba(255,255,255,0.7);">7 SRE Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alert Fatigue Reduction Stats -->
+  <section class="reveal container" style="margin: 4rem auto;">
+    <div class="grid-2" style="align-items: center;">
+      <div>
+        <span class="section-subtitle">Smart Alerting</span>
+        <h2>End Alert Fatigue For Good</h2>
+        <p>Engineers shouldn't wake up at 3 AM for non-actionable alerts. We implement intelligent anomaly detection and
+          burn-rate based alerting to ensure pages only happen when error budgets are at risk.</p>
+        <ul style="list-style: none; margin-top: 2rem;">
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
+              style="color: var(--accent-color); margin-right: 10px;"></i> Deduplication & Grouping</li>
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
+              style="color: var(--accent-color); margin-right: 10px;"></i> Multi-Window Multi-Burn-Rate Alerts</li>
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
+              style="color: var(--accent-color); margin-right: 10px;"></i> Automated Runbook Attachments</li>
+        </ul>
+        <a href="services.html" class="btn btn-primary" style="margin-top: 1rem;">View Alert Strategies</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
+          alt="Analytics Dashboard" class="skeleton"
+          style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure Monitoring Process -->
+  <section class="reveal glass" style="margin-bottom: 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Integration</span>
+        <h2>Seamless Infrastructure Monitoring</h2>
+        <p>A structured approach to plugging observability into any environment.</p>
+      </div>
+      <div class="grid-4 grid-flush">
+        <!-- Cloud Native -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/integ-cloud.png" alt="Cloud Native">
+          </div>
+          <div class="card-content" style="text-align: center;">
+            <h3 class="card-title">Cloud Native</h3>
+            <p class="card-desc">Native integrations with AWS, GCP, and Azure telemetry.</p>
+          </div>
+        </div>
+        <!-- Kubernetes -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/integ-k8s.png" alt="Kubernetes">
+          </div>
+          <div class="card-content" style="text-align: center;">
+            <h3 class="card-title">Kubernetes</h3>
+            <p class="card-desc">Deep visibility into pods, nodes, and cluster health.</p>
+          </div>
+        </div>
+        <!-- Service Mesh -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/integ-mesh.png" alt="Service Mesh">
+          </div>
+          <div class="card-content" style="text-align: center;">
+            <h3 class="card-title">Service Mesh</h3>
+            <p class="card-desc">Istio and Linkerd distributed tracing and metrics.</p>
+          </div>
+        </div>
+        <!-- Databases -->
+        <div class="card tilt-card service-card">
+          <div class="card-image">
+            <img src="assets/images/integ-db.png" alt="Databases">
+          </div>
+          <div class="card-content" style="text-align: center;">
+            <h3 class="card-title">Databases</h3>
+            <p class="card-desc">Query performance tracking for SQL and NoSQL stores.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure
+            runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

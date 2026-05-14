@@ -1,0 +1,65 @@
+/* RTL Direction Rules */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-links a::after {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .hero-text, 
+[dir="rtl"] .section-header, 
+[dir="rtl"] .footer-col,
+[dir="rtl"] .pricing-features,
+[dir="rtl"] .accordion-header {
+  text-align: right;
+}
+
+[dir="rtl"] .section-header {
+  text-align: center; /* keep center for main headings */
+}
+
+[dir="rtl"] .btn {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .pricing-features li {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .pricing-features i {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .footer-links a:hover {
+  padding-right: 5px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .back-to-top {
+  left: 30px;
+  right: auto;
+}
+
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .brand {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .nav-links {
+    right: -100%;
+    left: auto;
+    align-items: flex-end;
+  }
+  [dir="rtl"] .nav-links.active {
+    right: 0;
+    left: auto;
+  }
+}

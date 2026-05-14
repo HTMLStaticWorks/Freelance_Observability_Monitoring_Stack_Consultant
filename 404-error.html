@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Error - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .error-container {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+    }
+    .error-code {
+      font-size: clamp(6rem, 15vw, 12rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--secondary-color);
+      position: relative;
+      animation: glitch 2s infinite;
+    }
+    .error-code::before {
+      content: '404';
+      position: absolute;
+      left: 2px;
+      text-shadow: -2px 0 #ef4444;
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+    .error-code::after {
+      content: '404';
+      position: absolute;
+      left: -2px;
+      text-shadow: -2px 0 var(--accent-color);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+    
+    @keyframes glitch-anim {
+      0% { clip: rect(21px, 9999px, 86px, 0); }
+      20% { clip: rect(6px, 9999px, 8px, 0); }
+      40% { clip: rect(72px, 9999px, 12px, 0); }
+      60% { clip: rect(34px, 9999px, 55px, 0); }
+      80% { clip: rect(98px, 9999px, 20px, 0); }
+      100% { clip: rect(42px, 9999px, 60px, 0); }
+    }
+    @keyframes glitch-anim2 {
+      0% { clip: rect(81px, 9999px, 36px, 0); }
+      20% { clip: rect(26px, 9999px, 78px, 0); }
+      40% { clip: rect(12px, 9999px, 92px, 0); }
+      60% { clip: rect(84px, 9999px, 15px, 0); }
+      80% { clip: rect(58px, 9999px, 80px, 0); }
+      100% { clip: rect(22px, 9999px, 40px, 0); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h2 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem;">Service Unavailable</h2>
+    <p style="font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">
+      <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i> Alert: The page you requested has dropped off the radar. It seems our routing table didn't have an entry for this URL.
+    </p>
+    
+    <div style="background: var(--card-bg); padding: 1.5rem; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-family: var(--font-mono); text-align: left; margin-bottom: 2rem; max-width: 500px; width: 100%;">
+      <span style="color: #ef4444;">ERRO</span>[0000] Page not found error="http_404"<br>
+      <span style="color: var(--secondary-color);">INFO</span>[0000] Attempting recovery...<br>
+      <span style="color: var(--accent-color);">INFO</span>[0000] Recommendation: Reroute to root directory
+    </div>
+    
+    <a href="index.html" class="btn btn-primary" style="padding: 1rem 2rem;"><i class="fas fa-home"></i> Acknowledge Alert & Return Home</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

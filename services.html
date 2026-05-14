@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; align-items: flex-start; text-align: center;">
+    <div class="container">
+      <span class="badge" style="margin-bottom: 1rem;">What We Do</span>
+      <h1>Enterprise <span class="text-gradient">Observability</span> Solutions</h1>
+      <p style="max-width: 600px; margin: 0 auto;">We design, build, and maintain high-performance monitoring stacks for cloud-native ecosystems, ensuring you never miss a critical alert.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Observability Consulting -->
+  <section class="reveal glass" style="margin: 0; border-radius: 0;">
+    <div class="container grid-2" style="align-items: center;">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Consulting Setup" class="skeleton" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      </div>
+      <div>
+        <span class="section-subtitle">Strategic Planning</span>
+        <h2>Observability Architecture Consulting</h2>
+        <p>Before touching a single line of config, we analyze your entire topology. We map out your microservices, identify critical user journeys, and establish a baseline for your monitoring needs.</p>
+        <ul style="list-style: none; margin-top: 2rem;">
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Toolchain Audits & Optimization</li>
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Cost Reduction on Cloud Metrics</li>
+          <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Vendor-Neutral Strategy (OpenTelemetry)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Services Grid (Strictly 4 Cards) -->
+  <section class="reveal container" style="margin-top: 4rem;">
+    <div class="section-header text-center">
+      <h2>Core Engineering Services</h2>
+    </div>
+    <div class="grid-4">
+      <div class="card tilt-card">
+        <div class="card-icon"><i class="fas fa-server"></i></div>
+        <h3 class="card-title">Prometheus Setup</h3>
+        <p class="card-desc">Highly available Prometheus clusters with Thanos or Cortex for long-term storage and global querying across multiple clusters.</p>
+        <div class="card-action">
+          <a href="services-details.html" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3 class="card-title">Grafana Design</h3>
+        <p class="card-desc">Custom dashboarding that tells a story. From high-level executive overviews to deep-dive developer debugging screens.</p>
+        <div class="card-action">
+          <a href="services-details.html" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="card-icon"><i class="fas fa-stream"></i></div>
+        <h3 class="card-title">Logging Architecture</h3>
+        <p class="card-desc">Scalable ELK/EFK or Loki pipelines capable of ingesting terabytes of logs daily without dropping events or slowing down.</p>
+        <div class="card-action">
+          <a href="services-details.html" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3 class="card-title">SLI/SLO Consulting</h3>
+        <p class="card-desc">Data-driven reliability engineering. We define measurable indicators and achievable objectives to balance speed and stability.</p>
+        <div class="card-action">
+          <a href="services-details.html" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Kubernetes Monitoring -->
+  <section class="reveal glass" style="background: var(--primary-color); color: #fff;">
+    <div class="container text-center">
+      <span class="section-subtitle" style="color: var(--accent-color);">Cloud Native</span>
+      <h2 style="color: #fff; margin-bottom: 2rem;">Advanced Kubernetes Monitoring</h2>
+      <p style="color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 3rem;">We implement Kube-State-Metrics, cAdvisor, and custom controllers to give you x-ray vision into your pods, nodes, and deployments.</p>
+      
+      <div class="grid-4" style="text-align: left;">
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-md);">
+          <i class="fas fa-box-open" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+          <h4 style="color: #fff;">Pod Lifecycle</h4>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Track restarts, OOMKills, and scheduling delays.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-md);">
+          <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+          <h4 style="color: #fff;">Ingress Traffic</h4>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Monitor NGINX/Istio latency, errors, and throughput.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-md);">
+          <i class="fas fa-hdd" style="font-size: 2rem; color: #a855f7; margin-bottom: 1rem;"></i>
+          <h4 style="color: #fff;">Storage PV/PVC</h4>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Predict volume exhaustion before it crashes your DBs.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-md);">
+          <i class="fas fa-microchip" style="font-size: 2rem; color: #fbbf24; margin-bottom: 1rem;"></i>
+          <h4 style="color: #fff;">Resource Limits</h4>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Optimize CPU/Memory requests to save cloud costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Delivery Process (Workflow) -->
+  <section class="reveal container">
+    <div class="section-header text-center">
+      <h2>How We Deliver</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div class="card glass" style="flex-direction: row; align-items: center; gap: 2rem; padding: 2rem;">
+        <div style="font-size: 4rem; color: var(--secondary-color); font-weight: 800; opacity: 0.3;">01</div>
+        <div>
+          <h3>Audit & Gap Analysis</h3>
+          <p style="margin: 0;">We review your current telemetry tools, identify missing data points, and document performance bottlenecks.</p>
+        </div>
+      </div>
+      <div class="card glass" style="flex-direction: row; align-items: center; gap: 2rem; padding: 2rem; margin-left: 2rem;">
+        <div style="font-size: 4rem; color: var(--secondary-color); font-weight: 800; opacity: 0.3;">02</div>
+        <div>
+          <h3>Architecture Design</h3>
+          <p style="margin: 0;">We architect a resilient, scalable monitoring stack using Infrastructure as Code (Terraform/Helm).</p>
+        </div>
+      </div>
+      <div class="card glass" style="flex-direction: row; align-items: center; gap: 2rem; padding: 2rem; margin-left: 4rem;">
+        <div style="font-size: 4rem; color: var(--secondary-color); font-weight: 800; opacity: 0.3;">03</div>
+        <div>
+          <h3>Implementation & Dashboarding</h3>
+          <p style="margin: 0;">Deployment of agents, configuration of metric pipelines, and creation of Grafana UI visualizations.</p>
+        </div>
+      </div>
+      <div class="card glass" style="flex-direction: row; align-items: center; gap: 2rem; padding: 2rem; margin-left: 6rem;">
+        <div style="font-size: 4rem; color: var(--secondary-color); font-weight: 800; opacity: 0.3;">04</div>
+        <div>
+          <h3>Training & Handover</h3>
+          <p style="margin: 0;">We don't just build and leave. We train your engineers on how to query, debug, and maintain the system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

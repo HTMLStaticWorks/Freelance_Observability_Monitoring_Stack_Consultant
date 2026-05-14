@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; align-items: flex-start; text-align: center;">
+    <div class="container">
+      <span class="badge" style="margin-bottom: 1rem;">Our Work</span>
+      <h1>Infrastructure <span class="text-gradient">Portfolio</span></h1>
+      <p style="max-width: 600px; margin: 0 auto;">Explore our past projects where we transformed blind spots into crystal clear visibility for enterprise clients.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Portfolio Filters & Projects (Monitoring Projects) -->
+  <section class="reveal glass" style="margin: 0; border-radius: 0;">
+    <div class="container">
+      <!-- Filters -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active">All Projects</button>
+        <button class="filter-btn">Prometheus</button>
+        <button class="filter-btn">Grafana</button>
+        <button class="filter-btn">Logging</button>
+        <button class="filter-btn">Cloud</button>
+        <button class="filter-btn">DevOps</button>
+        <button class="filter-btn">SRE</button>
+      </div>
+
+      <!-- Projects Grid (4 Cards) -->
+      <div class="grid-4" style="margin-top: 3rem;">
+        <div class="card tilt-card" style="padding: 0;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="FinTech Dashboard" class="card-img-top" style="border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: 0;">
+          <div style="padding: 1.5rem;">
+            <span class="badge" style="margin-bottom: 1rem;">Grafana</span>
+            <h3 class="card-title">FinTech Trading Platform</h3>
+            <p class="card-desc">Sub-second latency dashboards tracking millions of transactions.</p>
+            <a href="#" class="btn btn-outline" style="width: 100%;">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="card tilt-card" style="padding: 0;">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="K8s Migration" class="card-img-top" style="border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: 0;">
+          <div style="padding: 1.5rem;">
+            <span class="badge" style="margin-bottom: 1rem;">Prometheus</span>
+            <h3 class="card-title">Global E-commerce K8s</h3>
+            <p class="card-desc">Thanos architecture scaling to handle 10,000+ pods globally.</p>
+            <a href="#" class="btn btn-outline" style="width: 100%;">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="card tilt-card" style="padding: 0;">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=600" alt="Log Analytics" class="card-img-top" style="border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: 0;">
+          <div style="padding: 1.5rem;">
+            <span class="badge" style="margin-bottom: 1rem;">Logging</span>
+            <h3 class="card-title">Telecom Log Pipeline</h3>
+            <p class="card-desc">Elasticsearch optimization handling 5TB of log ingestion daily.</p>
+            <a href="#" class="btn btn-outline" style="width: 100%;">View Case Study</a>
+          </div>
+        </div>
+
+        <div class="card tilt-card" style="padding: 0;">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="Cloud Network" class="card-img-top" style="border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: 0;">
+          <div style="padding: 1.5rem;">
+            <span class="badge" style="margin-bottom: 1rem;">Cloud</span>
+            <h3 class="card-title">Multi-Cloud Mesh</h3>
+            <p class="card-desc">Istio service mesh telemetry unified across AWS and GCP.</p>
+            <a href="#" class="btn btn-outline" style="width: 100%;">View Case Study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Dashboard Gallery -->
+  <section class="reveal container text-center">
+    <div class="section-header">
+      <h2>Dashboard Gallery</h2>
+      <p>A sneak peek into some of our high-end custom UI designs.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card tilt-card" style="padding: 0; overflow: hidden; background: #000; border: none;">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="Gallery 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+      </div>
+      <div class="card tilt-card" style="padding: 0; overflow: hidden; background: #000; border: none;">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=600" alt="Gallery 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+      </div>
+      <div class="card tilt-card" style="padding: 0; overflow: hidden; background: #000; border: none;">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="Gallery 3" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+      </div>
+      <div class="card tilt-card" style="padding: 0; overflow: hidden; background: #000; border: none;">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="Gallery 4" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Success Metrics (Case Studies Stats) -->
+  <section class="reveal glass" style="background: var(--primary-color); color: #fff;">
+    <div class="container">
+      <div class="section-header text-center" style="color: #fff;">
+        <span class="section-subtitle" style="color: var(--accent-color);">The Impact</span>
+        <h2 style="color: #fff;">Measurable Success</h2>
+      </div>
+      <div class="grid-4 text-center" style="margin-top: 3rem;">
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="99">0</div>
+          <p style="color: rgba(255,255,255,0.7);">% Uptime Achieved</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="80" style="color: var(--accent-color);">0</div>
+          <p style="color: rgba(255,255,255,0.7);">% Less False Alerts</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="40">0</div>
+          <p style="color: rgba(255,255,255,0.7);">% Cloud Cost Savings</p>
+        </div>
+        <div class="counter-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+          <div class="counter-num" data-target="150" style="color: var(--accent-color);">0</div>
+          <p style="color: rgba(255,255,255,0.7);">MS MTTR (Avg)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

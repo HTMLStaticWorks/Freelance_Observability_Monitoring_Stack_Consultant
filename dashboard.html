@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <style>
+    /* Dashboard Specific Layout */
+    body { background-color: #0f172a; overflow: hidden; } /* Ensure body doesn't scroll natively, only main area */
+    .dashboard-layout { display: flex; height: 100vh; width: 100vw; overflow: hidden; }
+    
+    .dashboard-sidebar {
+      width: 260px;
+      background: #1e293b;
+      border-right: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+    
+    .sidebar-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .sidebar-nav {
+      flex: 1;
+      padding: 1.5rem 1rem;
+      overflow-y: auto;
+    }
+    
+    .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+    .sidebar-nav li { margin-bottom: 0.5rem; }
+    .sidebar-nav a {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.75rem 1rem; color: #94a3b8; text-decoration: none;
+      border-radius: var(--radius-md); transition: var(--transition);
+    }
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      background: rgba(59, 130, 246, 0.1); color: #fff;
+    }
+    .sidebar-nav a i { width: 20px; text-align: center; }
+    
+    .sidebar-footer { padding: 1.5rem; border-top: 1px solid #334155; }
+    
+    .dashboard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    
+    .dashboard-topbar {
+      height: 70px;
+      padding: 0 2rem;
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .topbar-actions { display: flex; align-items: center; gap: 1rem; }
+    
+    .dashboard-content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    
+    .dash-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    
+    .metric-value { font-size: 2.5rem; font-weight: 700; font-family: var(--font-mono); margin: 0.5rem 0; }
+    
+    .chart-placeholder {
+      width: 100%; height: 250px; background: rgba(0,0,0,0.2);
+      border-radius: var(--radius-md); border: 1px dashed #334155;
+      display: flex; align-items: center; justify-content: center;
+      color: #64748b; font-family: var(--font-mono); position: relative; overflow: hidden;
+    }
+    
+    .bar {
+      position: absolute; bottom: 0; width: 10%; background: var(--secondary-color);
+      transition: height 1s; opacity: 0.7;
+    }
+    
+    .hamburger-dash { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    
+    @media (max-width: 1024px) {
+      .dashboard-sidebar {
+        position: fixed; left: -260px; top: 0; height: 100vh;
+      }
+      .dashboard-sidebar.active { left: 0; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+      .hamburger-dash { display: block; }
+    }
+    
+    /* Mobile Responsive Fixes */
+    @media (max-width: 768px) {
+      .dashboard-content { padding: 1rem; }
+      .dashboard-topbar { padding: 0 1rem; justify-content: flex-start; gap: 1rem; }
+      .topbar-actions { margin-left: auto; }
+      .dash-card { padding: 1rem; }
+      .metric-value { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+    }
+    
+    @media (max-width: 320px) {
+      .grid-4, .grid-2 { grid-template-columns: 1fr; }
+      .topbar-actions { display: none; /* Simplify topbar on very small screens */ }
+      .dashboard-topbar { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand" style="color: #fff;">
+          <i class="fas fa-chart-line"></i> SRE Consult
+        </a>
+        <button id="closeSidebar" class="hamburger-dash" style="font-size: 1.2rem;"><i class="fas fa-times"></i></button>
+      </div>
+      
+      <div class="sidebar-nav">
+        <ul>
+          <li><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Overview</p></li>
+          <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="#"><i class="fas fa-server"></i> Prom Metrics</a></li>
+          <li><a href="#"><i class="fas fa-chart-pie"></i> Grafana Panels</a></li>
+          
+          <li style="margin-top: 1.5rem;"><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Analytics</p></li>
+          <li><a href="#"><i class="fas fa-stream"></i> Logs Pipeline</a></li>
+          <li><a href="#"><i class="fas fa-bell"></i> Alerts Config</a></li>
+          <li><a href="#"><i class="fas fa-shield-alt"></i> SLO Status</a></li>
+          
+          <li style="margin-top: 1.5rem;"><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Account</p></li>
+          <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-footer">
+        <a href="index.html" class="btn btn-outline" style="width: 100%; border-color: #ef4444; color: #ef4444;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <button id="sidebarToggle" class="hamburger-dash"><i class="fas fa-bars"></i></button>
+        <h2 style="margin: 0; font-size: 1.2rem; color: #fff;">Production Cluster Health</h2>
+        <div class="topbar-actions">
+          <button class="btn-icon" style="background: rgba(255,255,255,0.05); color: #fff; position: relative;">
+            <i class="fas fa-bell"></i>
+            <span style="position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: #ef4444; border-radius: 50%;"></span>
+          </button>
+          <button class="btn-icon" id="themeToggle" style="background: rgba(255,255,255,0.05); color: #fff;"><i class="fas fa-sun"></i></button>
+          <button class="btn-icon" id="rtlToggle" style="background: rgba(255,255,255,0.05); color: #fff;"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" alt="User" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--secondary-color);">
+        </div>
+      </header>
+      
+      <div class="dashboard-content">
+        
+        <!-- Top 4 Cards -->
+        <div class="grid-4" style="margin-bottom: 2rem;">
+          <div class="dash-card tilt-card">
+            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Global Uptime</h4>
+            <div class="metric-value" style="color: var(--accent-color);">99.998%</div>
+            <p style="color: #64748b; font-size: 0.9rem; margin: 0;"><i class="fas fa-arrow-up" style="color: var(--accent-color);"></i> +0.001% vs last month</p>
+          </div>
+          <div class="dash-card tilt-card">
+            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">CPU Average</h4>
+            <div class="metric-value simulate-cpu" style="color: #fff;">42.5%</div>
+            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Across 500 nodes</p>
+          </div>
+          <div class="dash-card tilt-card">
+            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Active Alerts (P1)</h4>
+            <div class="metric-value" style="color: #10b981;">0</div>
+            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">No active incidents</p>
+          </div>
+          <div class="dash-card tilt-card">
+            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Log Ingestion Rate</h4>
+            <div class="metric-value" style="color: #a855f7;">4.2<span style="font-size: 1.2rem;"> GB/s</span></div>
+            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Elasticsearch Cluster A</p>
+          </div>
+        </div>
+
+        <!-- Main Charts Area -->
+        <div class="grid-2" style="margin-bottom: 2rem;">
+          <div class="dash-card">
+            <h3 style="margin-bottom: 1.5rem; color: #fff;">Prometheus Memory Allocation</h3>
+            <div class="chart-placeholder" id="memChart">
+              <!-- Simulated Chart Bars -->
+            </div>
+          </div>
+          <div class="dash-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h3 style="color: #fff; margin: 0;">Grafana Edge Preview</h3>
+              <span class="badge" style="background: rgba(59,130,246,0.2);">Live</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Grafana Live" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); filter: contrast(1.1) brightness(0.9);">
+          </div>
+        </div>
+
+        <!-- Logs & Alerts List -->
+        <div class="grid-2">
+          <div class="dash-card">
+            <h3 style="margin-bottom: 1.5rem; color: #fff;">Alert Fatigue Analytics</h3>
+            <ul style="list-style: none;">
+              <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
+                <div><strong style="color: #fff;">CPU Throttling Warning</strong><br><span style="color: #64748b; font-size: 0.9rem;">Deployment: payment-service</span></div>
+                <div style="text-align: right;"><span class="badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Warning</span><br><span style="color: #64748b; font-size: 0.8rem;">2 mins ago</span></div>
+              </li>
+              <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
+                <div><strong style="color: #fff;">OOMKilled Event</strong><br><span style="color: #64748b; font-size: 0.9rem;">Pod: auth-worker-0</span></div>
+                <div style="text-align: right;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Critical</span><br><span style="color: #64748b; font-size: 0.8rem;">15 mins ago</span></div>
+              </li>
+              <li style="display: flex; justify-content: space-between; padding: 1rem 0;">
+                <div><strong style="color: #fff;">High 5xx Rate</strong><br><span style="color: #64748b; font-size: 0.9rem;">Ingress: api-gateway</span></div>
+                <div style="text-align: right;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Resolved</span><br><span style="color: #64748b; font-size: 0.8rem;">1 hr ago</span></div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="dash-card">
+            <h3 style="margin-bottom: 1.5rem; color: #fff;">Logging Pipeline Tracker</h3>
+            
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: #94a3b8;">Logstash Queue</span>
+                <span style="color: #fff;">12% Full</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                <div style="width: 12%; height: 100%; background: var(--accent-color);"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: #94a3b8;">Elasticsearch Indexing Latency</span>
+                <span style="color: #fff;">45ms</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                <div style="width: 20%; height: 100%; background: var(--secondary-color);"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: #94a3b8;">Storage Disk Usage</span>
+                <span style="color: #f59e0b;">85%</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                <div style="width: 85%; height: 100%; background: #f59e0b;"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Simulate chart bars
+    const chart = document.getElementById('memChart');
+    if(chart) {
+      for(let i=0; i<20; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.left = (i * 5) + '%';
+        bar.style.width = '4%';
+        chart.appendChild(bar);
+      }
+      
+      setInterval(() => {
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => {
+          const height = Math.random() * 80 + 10;
+          bar.style.height = height + '%';
+          if(height > 70) bar.style.background = '#ef4444';
+          else if(height > 50) bar.style.background = '#f59e0b';
+          else bar.style.background = 'var(--secondary-color)';
+        });
+      }, 2000);
+    }
+    
+    // Close sidebar on mobile
+    document.getElementById('closeSidebar').addEventListener('click', () => {
+      document.querySelector('.dashboard-sidebar').classList.remove('active');
+    });
+  </script>
+</body>
+</html>

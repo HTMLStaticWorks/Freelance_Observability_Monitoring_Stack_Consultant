@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - Freelance Observability & Monitoring Stack Consultant</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-chart-line"></i> SRE Consult
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home-2.html">Home 2</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html" class="active">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <a href="login.html" class="btn btn-primary nav-cta">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; align-items: flex-start; text-align: center;">
+    <div class="container">
+      <span class="badge" style="margin-bottom: 1rem;">Transparent Pricing</span>
+      <h1>Consulting <span class="text-gradient">Plans</span></h1>
+      <p style="max-width: 600px; margin: 0 auto;">No hidden fees. Just elite-level infrastructure optimization for teams serious about reliability.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Pricing Cards (Strictly 4) -->
+  <section class="reveal container" style="margin-top: -3rem; padding-top: 0;">
+    <div class="grid-4" style="align-items: center;">
+      <!-- Plan 1 -->
+      <div class="card pricing-card glass tilt-card">
+        <h3>Audit & Review</h3>
+        <p class="card-desc">Perfect for finding bottlenecks.</p>
+        <div class="price">$1,499<span>/one-time</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Stack Architecture Review</li>
+          <li><i class="fas fa-check"></i> PromQL Optimization Report</li>
+          <li><i class="fas fa-check"></i> Alert Fatigue Analysis</li>
+          <li><i class="fas fa-times" style="color: #ef4444;"></i> Hands-on Implementation</li>
+          <li><i class="fas fa-times" style="color: #ef4444;"></i> Custom Dashboards</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+      </div>
+      
+      <!-- Plan 2 -->
+      <div class="card pricing-card popular glass tilt-card">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Implementation</h3>
+        <p class="card-desc">End-to-end monitoring setup.</p>
+        <div class="price">$4,999<span>/project</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Complete Audit</li>
+          <li><i class="fas fa-check"></i> Prometheus/Grafana Setup</li>
+          <li><i class="fas fa-check"></i> Up to 10 Custom Dashboards</li>
+          <li><i class="fas fa-check"></i> Alert Routing & Slack Integration</li>
+          <li><i class="fas fa-times" style="color: #ef4444;"></i> 24/7 SRE Support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="card pricing-card glass tilt-card">
+        <h3>Retainer (Part-time)</h3>
+        <p class="card-desc">Ongoing SRE guidance.</p>
+        <div class="price">$3,500<span>/month</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 20 Hours Monthly Consulting</li>
+          <li><i class="fas fa-check"></i> Weekly SLO Reviews</li>
+          <li><i class="fas fa-check"></i> Continuous Tuning</li>
+          <li><i class="fas fa-check"></i> Training Sessions</li>
+          <li><i class="fas fa-times" style="color: #ef4444;"></i> Emergency Paging</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+      </div>
+
+      <!-- Plan 4 -->
+      <div class="card pricing-card glass tilt-card">
+        <h3>Enterprise SRE</h3>
+        <p class="card-desc">Full 24/7 observability operations.</p>
+        <div class="price">Custom<span>/month</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Dedicated Engineering Pod</li>
+          <li><i class="fas fa-check"></i> Unlimited Dashboards</li>
+          <li><i class="fas fa-check"></i> 24/7 PagerDuty Rotation</li>
+          <li><i class="fas fa-check"></i> Incident Post-Mortems</li>
+          <li><i class="fas fa-check"></i> Multi-Cloud HA Architecture</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Feature Comparison -->
+  <section class="reveal container text-center">
+    <div class="section-header">
+      <h2>Plan Comparison</h2>
+      <p>A detailed breakdown of what's included in every tier.</p>
+    </div>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; text-align: left; border-collapse: collapse; background: var(--card-bg); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <thead style="background: rgba(59,130,246,0.1);">
+          <tr>
+            <th style="padding: 1.5rem;">Feature</th>
+            <th style="padding: 1.5rem; text-align: center;">Audit</th>
+            <th style="padding: 1.5rem; text-align: center;">Implementation</th>
+            <th style="padding: 1.5rem; text-align: center;">Retainer</th>
+            <th style="padding: 1.5rem; text-align: center;">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem 1.5rem;">Grafana Cloud Setup</td>
+            <td style="padding: 1rem; text-align: center;"><i class="fas fa-times" style="color: #ef4444;"></i></td>
+            <td style="padding: 1rem; text-align: center;"><i class="fas fa-check" style="color: var(--accent-color);"></i></td>
+            <td style="padding: 1rem; text-align: center;"><i class="fas fa-check" style="color: var(--accent-color);"></i></td>
+            <td style="padding: 1rem; text-align: center;"><i class="fas fa-check" style="color: var(--accent-color);"></i></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem 1.5rem;">SLI/SLO Definition</td>
+            <td style="padding: 1rem; text-align: center;">Basic</td>
+            <td style="padding: 1rem; text-align: center;">Advanced</td>
+            <td style="padding: 1rem; text-align: center;">Advanced</td>
+            <td style="padding: 1rem; text-align: center;">Custom</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem 1.5rem;">Response Time SLA</td>
+            <td style="padding: 1rem; text-align: center;">None</td>
+            <td style="padding: 1rem; text-align: center;">48 Hours</td>
+            <td style="padding: 1rem; text-align: center;">24 Hours</td>
+            <td style="padding: 1rem; text-align: center;">1 Hour</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 4: FAQ -->
+  <section class="reveal container" style="max-width: 800px;">
+    <div class="section-header text-center">
+      <h2>Pricing FAQs</h2>
+    </div>
+    <div class="accordion-item active">
+      <div class="accordion-header">Do you charge per server/node? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
+      <div class="accordion-content" style="max-height: 200px;">
+        <p>No, we do not charge based on the scale of your infrastructure. Our consulting fees are based purely on the complexity of the project and the time required for implementation.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">What payment methods do you accept? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
+      <div class="accordion-content">
+        <p>We accept wire transfers, major credit cards via Stripe, and crypto for enterprise clients.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Is there a long-term commitment? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
+      <div class="accordion-content">
+        <p>Only for the Retainer and Enterprise plans (minimum 3 months). Audit and Implementation are one-off engagements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: CTA -->
+  <section class="reveal glass" style="background: var(--primary-color); color: #fff; text-align: center; padding: 4rem 1.5rem; border-radius: var(--radius-lg); max-width: 1000px; margin: 0 auto 6rem;">
+    <h2>Not sure which plan is right for you?</h2>
+    <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 1rem auto 2rem;">Book a free 30-minute discovery call to discuss your infrastructure challenges.</p>
+    <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem;">Schedule Call</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+            <i class="fas fa-chart-line"></i> SRE Consult
+          </a>
+          <p>Premium SRE + DevOps + Monitoring + Observability Portfolio & Consulting. We ensure your infrastructure runs 24/7 with zero downtime.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services-details.html">Observability Setup</a></li>
+            <li><a href="services-details.html">Prometheus Metrics</a></li>
+            <li><a href="services-details.html">Grafana Dashboards</a></li>
+            <li><a href="services-details.html">Logging Pipelines</a></li>
+            <li><a href="services-details.html">SLI/SLO Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe for the latest DevOps trends.</p>
+          <form class="newsletter-form" style="display: flex; gap: 0.5rem;" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Your email" class="form-control" style="flex: 1;" required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Freelance Observability & Monitoring Stack Consultant. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
