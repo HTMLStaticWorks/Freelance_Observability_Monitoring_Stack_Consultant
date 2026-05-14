@@ -5,12 +5,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarToggle = document.getElementById('sidebarToggle');
   const sidebar = document.querySelector('.dashboard-sidebar');
   const mainContent = document.querySelector('.dashboard-main');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.content-section');
 
   if(sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', () => {
       sidebar.classList.toggle('active');
     });
   }
+
+  // Navigation Logic
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-section');
+      
+      // Update Active Link
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      
+      // Update Active Section
+      sections.forEach(section => {
+        section.style.display = 'none';
+        if(section.id === targetId) {
+          section.style.display = 'block';
+        }
+      });
+
+      // Update Topbar Title (Optional but professional)
+      const pageTitle = document.querySelector('.dashboard-topbar h2');
+      if(pageTitle) {
+        pageTitle.innerText = link.innerText.trim() + " Overview";
+      }
+
+      // Close sidebar on mobile
+      if(window.innerWidth <= 1024) {
+        sidebar.classList.remove('active');
+      }
+    });
+  });
 
   // Simulate Real-time Metrics Update
   const metricValues = document.querySelectorAll('.metric-value');

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Contact - Freelance Observability & Monitoring Stack Consultant</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,10 +30,18 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-theme-rtl">
+            <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary nav-cta-mobile">Login</a>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i
+            class="fas fa-arrow-right-arrow-left"></i></button>
         <a href="login.html" class="btn btn-primary nav-cta">Login</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
       </div>
@@ -40,17 +49,17 @@
   </nav>
 
   <!-- Section 1: Hero -->
-  <section class="hero reveal" style="min-height: 40vh; padding-top: 120px; align-items: flex-start; text-align: center; background: radial-gradient(circle at bottom, rgba(16,185,129,0.1), transparent 70%);">
+  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; display: flex; align-items: center; position: relative; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('assets/images/contact-hero.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #fff; text-align: center;">
     <div class="container">
-      <span class="badge" style="margin-bottom: 1rem;">Get In Touch</span>
-      <h1>Let's Talk <span class="text-gradient">Infrastructure</span></h1>
-      <p style="max-width: 600px; margin: 0 auto;">Ready to eliminate blind spots? Reach out to schedule a consultation with our senior observability engineers.</p>
+      <span class="badge" style="margin-bottom: 1rem; border-color: rgba(255,255,255,0.3); color: #fff; background: rgba(255,255,255,0.1);">Get In Touch</span>
+      <h1 style="color: #fff;">Let's Talk <span class="text-gradient">Infrastructure</span></h1>
+      <p style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.9);">Ready to eliminate blind spots? Reach out to schedule a consultation with our senior observability engineers.</p>
     </div>
   </section>
 
   <!-- Section 2: Contact Info -->
-  <section class="reveal container" style="margin-top: -3rem; padding-top: 0;">
-    <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+  <section class="reveal container" style="padding-top: 4rem;">
+    <div class="grid-4">
       <div class="card text-center tilt-card">
         <div class="card-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-envelope"></i></div>
         <h3 class="card-title">Email Us</h3>
@@ -65,6 +74,11 @@
         <div class="card-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-map-marker-alt"></i></div>
         <h3 class="card-title">Visit Us</h3>
         <p class="card-desc">100 Tech Lane, Suite 400<br>San Francisco, CA 94105</p>
+      </div>
+      <div class="card text-center tilt-card">
+        <div class="card-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-headset"></i></div>
+        <h3 class="card-title">Live Support</h3>
+        <p class="card-desc">Available 24/7 for<br>Priority Retainer Clients</p>
       </div>
     </div>
   </section>
@@ -111,7 +125,7 @@
   </section>
 
   <!-- Section 5: FAQ -->
-  <section class="reveal container" style="max-width: 800px; margin-bottom: 6rem;">
+  <section class="reveal container" style="max-width: 800px; margin-bottom: 6rem; padding-top: 6rem;">
     <div class="section-header text-center">
       <h2>Pre-Consultation FAQ</h2>
     </div>
@@ -127,6 +141,20 @@
       <div class="accordion-header">Do you sign NDAs? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
       <div class="accordion-content">
         <p>Yes, we standardly sign Mutual Non-Disclosure Agreements before discussing any specifics regarding your proprietary infrastructure.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">How long does a typical implementation take? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
+      <div class="accordion-content">
+        <p>Implementation timelines vary based on complexity, but a standard Prometheus/Grafana setup for a medium-scale K8s cluster typically takes 2-4 weeks from start to finish.</p>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header">Do you offer ongoing maintenance? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
+      <div class="accordion-content">
+        <p>Yes, we offer monthly retainer plans that include continuous tuning, regular SLO reviews, and priority troubleshooting to ensure your observability stack remains optimized as you scale.</p>
       </div>
     </div>
   </section>

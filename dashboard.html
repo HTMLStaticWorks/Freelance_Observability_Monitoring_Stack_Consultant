@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Dashboard - Freelance Observability & Monitoring Stack Consultant</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,13 +13,13 @@
   
   <style>
     /* Dashboard Specific Layout */
-    body { background-color: #0f172a; overflow: hidden; } /* Ensure body doesn't scroll natively, only main area */
+    body { background-color: var(--bg-color); overflow: hidden; color: var(--text-color); } /* Ensure body doesn't scroll natively, only main area */
     .dashboard-layout { display: flex; height: 100vh; width: 100vw; overflow: hidden; }
     
     .dashboard-sidebar {
       width: 260px;
-      background: #1e293b;
-      border-right: 1px solid #334155;
+      background: var(--card-bg);
+      border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       transition: var(--transition);
@@ -27,7 +28,7 @@
     
     .sidebar-header {
       padding: 1.5rem;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,29 +44,29 @@
     .sidebar-nav li { margin-bottom: 0.5rem; }
     .sidebar-nav a {
       display: flex; align-items: center; gap: 1rem;
-      padding: 0.75rem 1rem; color: #94a3b8; text-decoration: none;
+      padding: 0.75rem 1rem; color: var(--text-light); text-decoration: none;
       border-radius: var(--radius-md); transition: var(--transition);
     }
     .sidebar-nav a:hover, .sidebar-nav a.active {
-      background: rgba(59, 130, 246, 0.1); color: #fff;
+      background: rgba(59, 130, 246, 0.1); color: var(--secondary-color);
     }
     .sidebar-nav a i { width: 20px; text-align: center; }
     
-    .sidebar-footer { padding: 1.5rem; border-top: 1px solid #334155; }
+    .sidebar-footer { padding: 1.5rem; border-top: 1px solid var(--border-color); }
     
     .dashboard-main {
       flex: 1;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: #0f172a;
+      background: var(--bg-color);
     }
     
     .dashboard-topbar {
       height: 70px;
       padding: 0 2rem;
-      background: #1e293b;
-      border-bottom: 1px solid #334155;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -80,8 +81,8 @@
     }
     
     .dash-card {
-      background: #1e293b;
-      border: 1px solid #334155;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
     }
@@ -89,10 +90,10 @@
     .metric-value { font-size: 2.5rem; font-weight: 700; font-family: var(--font-mono); margin: 0.5rem 0; }
     
     .chart-placeholder {
-      width: 100%; height: 250px; background: rgba(0,0,0,0.2);
-      border-radius: var(--radius-md); border: 1px dashed #334155;
+      width: 100%; height: 250px; background: rgba(0,0,0,0.05);
+      border-radius: var(--radius-md); border: 1px dashed var(--border-color);
       display: flex; align-items: center; justify-content: center;
-      color: #64748b; font-family: var(--font-mono); position: relative; overflow: hidden;
+      color: var(--text-light); font-family: var(--font-mono); position: relative; overflow: hidden;
     }
     
     .bar {
@@ -100,30 +101,90 @@
       transition: height 1s; opacity: 0.7;
     }
     
-    .hamburger-dash { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .hamburger-dash { 
+      display: none; 
+      background: none; 
+      border: none; 
+      color: var(--text-color); 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      padding: 0.5rem;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    
+    .hamburger-dash:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--secondary-color);
+    }
     
     @media (max-width: 1024px) {
       .dashboard-sidebar {
-        position: fixed; left: -260px; top: 0; height: 100vh;
+        position: fixed; 
+        left: -260px; 
+        top: 0; 
+        height: 100vh;
+        box-shadow: none;
       }
-      .dashboard-sidebar.active { left: 0; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+      .dashboard-sidebar.active { 
+        left: 0; 
+        box-shadow: 10px 0 30px rgba(0,0,0,0.2); 
+      }
       .hamburger-dash { display: block; }
+      
+      .dashboard-main {
+        width: 100%;
+      }
+
+      .topbar-actions { display: none !important; }
+      .mobile-sidebar-item { display: block !important; }
     }
+    
+    .mobile-sidebar-item { display: none; }
     
     /* Mobile Responsive Fixes */
     @media (max-width: 768px) {
       .dashboard-content { padding: 1rem; }
       .dashboard-topbar { padding: 0 1rem; justify-content: flex-start; gap: 1rem; }
-      .topbar-actions { margin-left: auto; }
       .dash-card { padding: 1rem; }
       .metric-value { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
+      h2 { font-size: 1.1rem; }
+      .badge-stack { flex-direction: column; align-items: stretch; }
+      .badge-stack .badge { text-align: center; padding: 0.5rem; }
     }
     
     @media (max-width: 320px) {
-      .grid-4, .grid-2 { grid-template-columns: 1fr; }
-      .topbar-actions { display: none; /* Simplify topbar on very small screens */ }
-      .dashboard-topbar { padding: 0 1rem; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .dashboard-topbar { padding: 0 0.5rem; gap: 0.5rem; }
+      h2 { font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* RTL Support for Dashboard */
+    [dir="rtl"] .dashboard-layout { flex-direction: row-reverse; }
+    [dir="rtl"] .dashboard-sidebar { border-left: 1px solid var(--border-color); border-right: none; }
+    [dir="rtl"] .dashboard-topbar { flex-direction: row-reverse; }
+    [dir="rtl"] .sidebar-nav a { flex-direction: row-reverse; justify-content: flex-start; text-align: right; }
+    [dir="rtl"] .sidebar-nav a i { margin-left: 0; margin-right: 0; }
+    [dir="rtl"] .sidebar-header { flex-direction: row-reverse; }
+    [dir="rtl"] .topbar-actions { flex-direction: row-reverse; }
+    
+    @media (max-width: 1024px) {
+      [dir="rtl"] .dashboard-sidebar { left: auto; right: -260px; }
+      [dir="rtl"] .dashboard-sidebar.active { left: auto; right: 0; box-shadow: -10px 0 30px rgba(0,0,0,0.2); }
     }
   </style>
 </head>
@@ -134,7 +195,7 @@
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
       <div class="sidebar-header">
-        <a href="index.html" class="brand" style="color: #fff;">
+        <a href="index.html" class="brand">
           <i class="fas fa-chart-line"></i> SRE Consult
         </a>
         <button id="closeSidebar" class="hamburger-dash" style="font-size: 1.2rem;"><i class="fas fa-times"></i></button>
@@ -142,23 +203,40 @@
       
       <div class="sidebar-nav">
         <ul>
-          <li><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Overview</p></li>
-          <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-          <li><a href="#"><i class="fas fa-server"></i> Prom Metrics</a></li>
-          <li><a href="#"><i class="fas fa-chart-pie"></i> Grafana Panels</a></li>
+          <li><p style="color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Overview</p></li>
+          <li><a href="#" class="nav-link active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="#" class="nav-link" data-section="prom-metrics"><i class="fas fa-server"></i> Prom Metrics</a></li>
+          <li><a href="#" class="nav-link" data-section="grafana-panels"><i class="fas fa-chart-pie"></i> Grafana Panels</a></li>
           
-          <li style="margin-top: 1.5rem;"><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Analytics</p></li>
-          <li><a href="#"><i class="fas fa-stream"></i> Logs Pipeline</a></li>
-          <li><a href="#"><i class="fas fa-bell"></i> Alerts Config</a></li>
-          <li><a href="#"><i class="fas fa-shield-alt"></i> SLO Status</a></li>
+          <li style="margin-top: 1.5rem;"><p style="color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Analytics</p></li>
+          <li><a href="#" class="nav-link" data-section="logs-pipeline"><i class="fas fa-stream"></i> Logs Pipeline</a></li>
+          <li><a href="#" class="nav-link" data-section="alerts-config"><i class="fas fa-bell"></i> Alerts Config</a></li>
+          <li><a href="#" class="nav-link" data-section="slo-status"><i class="fas fa-shield-alt"></i> SLO Status</a></li>
           
-          <li style="margin-top: 1.5rem;"><p style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Account</p></li>
-          <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
-          <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+          <li style="margin-top: 1.5rem;"><p style="color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Account</p></li>
+          <li><a href="#" class="nav-link" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="#" class="nav-link" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+          
+          <li class="mobile-sidebar-item" style="padding: 1rem 1rem 0;">
+            <div style="display: flex; gap: 1.5rem; align-items: center; justify-content: center; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+              <button class="btn-icon" style="position: relative; width: 45px; height: 45px; background: var(--bg-color);">
+                <i class="fas fa-bell"></i>
+                <span style="position: absolute; top: 0; right: 0; width: 12px; height: 12px; background: #ef4444; border-radius: 50%; border: 2px solid var(--card-bg);"></span>
+              </button>
+              <div style="position: relative;">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" alt="User" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary-color);">
+                <span style="position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #10b981; border-radius: 50%; border: 2px solid var(--card-bg);"></span>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       
       <div class="sidebar-footer">
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <button class="btn-icon theme-toggle" style="flex: 1; border: 1px solid var(--border-color); height: 40px; border-radius: var(--radius-md);"><i class="fas fa-sun"></i></button>
+          <button class="btn-icon rtl-toggle" style="flex: 1; border: 1px solid var(--border-color); height: 40px; border-radius: var(--radius-md);"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        </div>
         <a href="index.html" class="btn btn-outline" style="width: 100%; border-color: #ef4444; color: #ef4444;"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </aside>
@@ -167,115 +245,258 @@
     <main class="dashboard-main">
       <header class="dashboard-topbar">
         <button id="sidebarToggle" class="hamburger-dash"><i class="fas fa-bars"></i></button>
-        <h2 style="margin: 0; font-size: 1.2rem; color: #fff;">Production Cluster Health</h2>
+        <h2 style="margin: 0; font-size: 1.2rem;">Production Cluster Health</h2>
         <div class="topbar-actions">
-          <button class="btn-icon" style="background: rgba(255,255,255,0.05); color: #fff; position: relative;">
+          <button class="btn-icon" style="position: relative;">
             <i class="fas fa-bell"></i>
             <span style="position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: #ef4444; border-radius: 50%;"></span>
           </button>
-          <button class="btn-icon" id="themeToggle" style="background: rgba(255,255,255,0.05); color: #fff;"><i class="fas fa-sun"></i></button>
-          <button class="btn-icon" id="rtlToggle" style="background: rgba(255,255,255,0.05); color: #fff;"><i class="fas fa-arrow-right-arrow-left"></i></button>
           <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" alt="User" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--secondary-color);">
         </div>
       </header>
       
       <div class="dashboard-content">
         
-        <!-- Top 4 Cards -->
-        <div class="grid-4" style="margin-bottom: 2rem;">
-          <div class="dash-card tilt-card">
-            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Global Uptime</h4>
-            <div class="metric-value" style="color: var(--accent-color);">99.998%</div>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;"><i class="fas fa-arrow-up" style="color: var(--accent-color);"></i> +0.001% vs last month</p>
+        <!-- Dashboard Home Section -->
+        <div id="dashboard" class="content-section">
+          <!-- Top 4 Cards -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card tilt-card">
+              <h4 style="font-weight: 500; margin-bottom: 0;">Global Uptime</h4>
+              <div class="metric-value" style="color: var(--accent-color);">99.998%</div>
+              <p style="font-size: 0.9rem; margin: 0;"><i class="fas fa-arrow-up" style="color: var(--accent-color);"></i> +0.001% vs last month</p>
+            </div>
+            <div class="dash-card tilt-card">
+              <h4 style="font-weight: 500; margin-bottom: 0;">CPU Average</h4>
+              <div class="metric-value simulate-cpu">42.5%</div>
+              <p style="font-size: 0.9rem; margin: 0;">Across 500 nodes</p>
+            </div>
+            <div class="dash-card tilt-card">
+              <h4 style="font-weight: 500; margin-bottom: 0;">Active Alerts (P1)</h4>
+              <div class="metric-value" style="color: #10b981;">0</div>
+              <p style="font-size: 0.9rem; margin: 0;">No active incidents</p>
+            </div>
+            <div class="dash-card tilt-card">
+              <h4 style="font-weight: 500; margin-bottom: 0;">Log Ingestion Rate</h4>
+              <div class="metric-value" style="color: #a855f7;">4.2<span style="font-size: 1.2rem;"> GB/s</span></div>
+              <p style="font-size: 0.9rem; margin: 0;">Elasticsearch Cluster A</p>
+            </div>
           </div>
-          <div class="dash-card tilt-card">
-            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">CPU Average</h4>
-            <div class="metric-value simulate-cpu" style="color: #fff;">42.5%</div>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Across 500 nodes</p>
+
+          <!-- Main Charts Area -->
+          <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="dash-card">
+              <h3 style="margin-bottom: 1.5rem;">Prometheus Memory Allocation</h3>
+              <div class="chart-placeholder" id="memChart">
+                <!-- Simulated Chart Bars -->
+              </div>
+            </div>
+            <div class="dash-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="margin: 0;">Grafana Edge Preview</h3>
+                <span class="badge" style="background: rgba(59,130,246,0.2);">Live</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Grafana Live" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); filter: contrast(1.1) brightness(0.9);">
+            </div>
           </div>
-          <div class="dash-card tilt-card">
-            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Active Alerts (P1)</h4>
-            <div class="metric-value" style="color: #10b981;">0</div>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">No active incidents</p>
-          </div>
-          <div class="dash-card tilt-card">
-            <h4 style="color: #94a3b8; font-weight: 500; margin-bottom: 0;">Log Ingestion Rate</h4>
-            <div class="metric-value" style="color: #a855f7;">4.2<span style="font-size: 1.2rem;"> GB/s</span></div>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Elasticsearch Cluster A</p>
+
+          <!-- Logs & Alerts List -->
+          <div class="grid-2">
+            <div class="dash-card">
+              <h3 style="margin-bottom: 1.5rem;">Alert Fatigue Analytics</h3>
+              <ul style="list-style: none;">
+                <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
+                  <div><strong style="color: #fff;">CPU Throttling Warning</strong><br><span style="color: #64748b; font-size: 0.9rem;">Deployment: payment-service</span></div>
+                  <div style="text-align: right;"><span class="badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Warning</span><br><span style="color: #64748b; font-size: 0.8rem;">2 mins ago</span></div>
+                </li>
+                <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
+                  <div><strong style="color: #fff;">OOMKilled Event</strong><br><span style="color: #64748b; font-size: 0.9rem;">Pod: auth-worker-0</span></div>
+                  <div style="text-align: right;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Critical</span><br><span style="color: #64748b; font-size: 0.8rem;">15 mins ago</span></div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="dash-card">
+              <h3 style="margin-bottom: 1.5rem;">Logging Pipeline Tracker</h3>
+              <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span style="color: #94a3b8;">Logstash Queue</span>
+                  <span style="color: #fff;">12% Full</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 12%; height: 100%; background: var(--accent-color);"></div>
+                </div>
+              </div>
+              <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span style="color: #94a3b8;">Storage Disk Usage</span>
+                  <span style="color: #f59e0b;">85%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 85%; height: 100%; background: #f59e0b;"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Main Charts Area -->
-        <div class="grid-2" style="margin-bottom: 2rem;">
-          <div class="dash-card">
-            <h3 style="margin-bottom: 1.5rem; color: #fff;">Prometheus Memory Allocation</h3>
-            <div class="chart-placeholder" id="memChart">
-              <!-- Simulated Chart Bars -->
+        <!-- Prom Metrics Section -->
+        <div id="prom-metrics" class="content-section" style="display: none;">
+          <!-- Section 1: Card Section (4 items) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4 style="color: #94a3b8; font-weight: 500;">Active Scrapes</h4><div class="metric-value">1,248</div><p style="color: #10b981;">Healthy</p></div>
+            <div class="dash-card"><h4 style="color: #94a3b8; font-weight: 500;">TSDB Chunks</h4><div class="metric-value">42.5M</div><p style="color: #94a3b8;">Persistence active</p></div>
+            <div class="dash-card"><h4 style="color: #94a3b8; font-weight: 500;">Query Latency</h4><div class="metric-value">124ms</div><p style="color: #10b981;">Below threshold</p></div>
+            <div class="dash-card"><h4 style="font-weight: 500;">Scrape Failures</h4><div class="metric-value" style="color: #ef4444;">3</div><p style="color: #ef4444;">Requires attention</p></div>
+          </div>
+          <!-- Section 2: Data Table -->
+          <div class="dash-card" style="margin-bottom: 2rem;">
+            <h3>Real-time Scrape Targets</h3>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <thead>
+                  <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-light); text-align: left;">
+                    <th style="padding: 1rem;">Endpoint</th><th style="padding: 1rem;">Status</th><th style="padding: 1rem;">Labels</th><th style="padding: 1rem;">Last Scrape</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 1rem;">kube-state-metrics:8080</td><td style="padding: 1rem;"><span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">UP</span></td><td style="padding: 1rem; color: var(--text-light); font-size: 0.8rem;">env="prod", job="k8s"</td><td style="padding: 1rem;">0.5s ago</td></tr>
+                  <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 1rem;">node-exporter:9100</td><td style="padding: 1rem;"><span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">UP</span></td><td style="padding: 1rem; color: var(--text-light); font-size: 0.8rem;">env="prod", job="nodes"</td><td style="padding: 1rem;">1.2s ago</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
+          <!-- Section 3: Metric Explorer Placeholder -->
+          <div class="dash-card"><h3 style="margin-bottom: 1rem;">Metric Explorer</h3><div class="chart-placeholder">Select a metric to visualize</div></div>
+        </div>
+
+        <!-- Grafana Panels Section -->
+        <div id="grafana-panels" class="content-section" style="display: none;">
+          <!-- Section 1: Top Panels -->
+          <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h3 style="margin-bottom: 1rem;">Network Traffic</h3><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Grafana" style="width: 100%; border-radius: 8px;"></div>
+            <div class="dash-card"><h3 style="margin-bottom: 1rem;">Error Rates</h3><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Grafana" style="width: 100%; border-radius: 8px;"></div>
+          </div>
+          <!-- Section 2: Small Panels (4 items) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Latency P99</h4><div class="chart-placeholder">45ms</div></div>
+            <div class="dash-card"><h4>Throughput</h4><div class="chart-placeholder">1.2k/s</div></div>
+            <div class="dash-card"><h4>Success Rate</h4><div class="chart-placeholder">99.9%</div></div>
+            <div class="dash-card"><h4>Saturation</h4><div class="chart-placeholder">12%</div></div>
+          </div>
+          <!-- Section 3: Dashboard Links -->
           <div class="dash-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-              <h3 style="color: #fff; margin: 0;">Grafana Edge Preview</h3>
-              <span class="badge" style="background: rgba(59,130,246,0.2);">Live</span>
+            <h3 style="margin-bottom: 1rem;">Available Dashboards</h3>
+            <div class="badge-stack" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <span class="badge">Kubernetes Cluster</span>
+              <span class="badge">MySQL Deep Dive</span>
+              <span class="badge">Redis Overview</span>
+              <span class="badge">NGINX Ingress</span>
             </div>
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Grafana Live" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); filter: contrast(1.1) brightness(0.9);">
           </div>
         </div>
 
-        <!-- Logs & Alerts List -->
-        <div class="grid-2">
-          <div class="dash-card">
-            <h3 style="margin-bottom: 1.5rem; color: #fff;">Alert Fatigue Analytics</h3>
-            <ul style="list-style: none;">
-              <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
-                <div><strong style="color: #fff;">CPU Throttling Warning</strong><br><span style="color: #64748b; font-size: 0.9rem;">Deployment: payment-service</span></div>
-                <div style="text-align: right;"><span class="badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Warning</span><br><span style="color: #64748b; font-size: 0.8rem;">2 mins ago</span></div>
-              </li>
-              <li style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #334155;">
-                <div><strong style="color: #fff;">OOMKilled Event</strong><br><span style="color: #64748b; font-size: 0.9rem;">Pod: auth-worker-0</span></div>
-                <div style="text-align: right;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Critical</span><br><span style="color: #64748b; font-size: 0.8rem;">15 mins ago</span></div>
-              </li>
-              <li style="display: flex; justify-content: space-between; padding: 1rem 0;">
-                <div><strong style="color: #fff;">High 5xx Rate</strong><br><span style="color: #64748b; font-size: 0.9rem;">Ingress: api-gateway</span></div>
-                <div style="text-align: right;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Resolved</span><br><span style="color: #64748b; font-size: 0.8rem;">1 hr ago</span></div>
-              </li>
-            </ul>
+        <!-- Logs Pipeline Section -->
+        <div id="logs-pipeline" class="content-section" style="display: none;">
+          <!-- Section 1: Stats -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Ingestion</h4><div class="metric-value">4.2 GB/s</div></div>
+            <div class="dash-card"><h4>Dropped</h4><div class="metric-value" style="color: #10b981;">0</div></div>
+            <div class="dash-card"><h4>Latency</h4><div class="metric-value">45ms</div></div>
+            <div class="dash-card"><h4>Storage</h4><div class="metric-value">85%</div></div>
           </div>
-          
-          <div class="dash-card">
-            <h3 style="margin-bottom: 1.5rem; color: #fff;">Logging Pipeline Tracker</h3>
-            
-            <div style="margin-bottom: 1rem;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="color: #94a3b8;">Logstash Queue</span>
-                <span style="color: #fff;">12% Full</span>
-              </div>
-              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
-                <div style="width: 12%; height: 100%; background: var(--accent-color);"></div>
-              </div>
+          <!-- Section 2: Live Stream -->
+          <div class="dash-card" style="height: 350px; display: flex; flex-direction: column; margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;"><h3 style="margin: 0;">Live Logs</h3><button class="btn btn-primary" style="padding: 0.5rem 1rem;">Pause</button></div>
+            <div style="flex: 1; background: #000; padding: 1rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; color: #10b981; overflow-y: auto;">
+              <div>[23:01:42] INFO: Request processed by auth-service in 42ms</div>
+              <div style="color: #f59e0b;">[23:01:45] WARN: Connection timeout in database-replica-1</div>
+              <div style="color: #ef4444;">[23:01:48] ERROR: NullPointerException in billing-controller.java</div>
             </div>
-
-            <div style="margin-bottom: 1rem;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="color: #94a3b8;">Elasticsearch Indexing Latency</span>
-                <span style="color: #fff;">45ms</span>
-              </div>
-              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
-                <div style="width: 20%; height: 100%; background: var(--secondary-color);"></div>
-              </div>
-            </div>
-
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="color: #94a3b8;">Storage Disk Usage</span>
-                <span style="color: #f59e0b;">85%</span>
-              </div>
-              <div style="width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
-                <div style="width: 85%; height: 100%; background: #f59e0b;"></div>
-              </div>
-            </div>
-            
           </div>
+          <!-- Section 3: Pipelines -->
+          <div class="grid-2">
+            <div class="dash-card"><h4>Elasticsearch Health</h4><p style="color: #10b981;">Green - All shards assigned</p></div>
+            <div class="dash-card"><h4>Logstash Cluster</h4><p style="color: #10b981;">Running - 12 nodes</p></div>
+          </div>
+        </div>
+
+        <!-- Alerts Config Section -->
+        <div id="alerts-config" class="content-section" style="display: none;">
+          <!-- Section 1: Alert Summary (4 items) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Critical</h4><div class="metric-value" style="color: #ef4444;">2</div></div>
+            <div class="dash-card"><h4>Warning</h4><div class="metric-value" style="color: #f59e0b;">5</div></div>
+            <div class="dash-card"><h4>Resolved</h4><div class="metric-value" style="color: #10b981;">124</div></div>
+            <div class="dash-card"><h4>Silenced</h4><div class="metric-value">1</div></div>
+          </div>
+          <!-- Section 2: Active Rules -->
+          <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h3 style="margin-bottom: 1rem;">Firing Alerts</h3><div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; margin-bottom: 1rem;"><h4 style="margin: 0;">High CPU Usage</h4><p style="font-size: 0.8rem;">prod-cluster-01</p></div></div>
+            <div class="dash-card"><h3 style="margin-bottom: 1rem;">Notification Channels</h3><div style="display: flex; gap: 1rem;"><i class="fab fa-slack" style="font-size: 1.5rem;"></i><i class="fas fa-envelope" style="font-size: 1.5rem;"></i><i class="fas fa-phone" style="font-size: 1.5rem;"></i></div></div>
+          </div>
+          <!-- Section 3: Maintenance -->
+          <div class="dash-card"><h3>Maintenance Windows</h3><p>No scheduled maintenance</p></div>
+        </div>
+
+        <!-- SLO Status Section -->
+        <div id="slo-status" class="content-section" style="display: none;">
+          <!-- Section 1: Primary SLOs (4 items) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Availability</h4><div class="metric-value" style="color: #10b981;">99.99%</div></div>
+            <div class="dash-card"><h4>Latency</h4><div class="metric-value" style="color: #10b981;">142ms</div></div>
+            <div class="dash-card"><h4>Success</h4><div class="metric-value" style="color: #10b981;">99.9%</div></div>
+            <div class="dash-card"><h4>Freshness</h4><div class="metric-value" style="color: #f59e0b;">98.5%</div></div>
+          </div>
+          <!-- Section 2: Error Budgets -->
+          <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h3>Monthly Error Budget</h3><div class="chart-placeholder">75% Remaining</div></div>
+            <div class="dash-card"><h3>SLI Compliance</h3><div class="chart-placeholder">Compliance over 30 days</div></div>
+          </div>
+          <!-- Section 3: Reports -->
+          <div class="dash-card"><h3>Recent SLO Reports</h3><div style="display: flex; gap: 1rem;"><button class="btn btn-outline" style="padding: 0.5rem 1rem;">April 2026</button><button class="btn btn-outline" style="padding: 0.5rem 1rem;">March 2026</button></div></div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile" class="content-section" style="display: none;">
+          <!-- Section 1: User Info -->
+          <div class="dash-card" style="margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 2rem;">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" style="width: 80px; height: 80px; border-radius: 50%;">
+              <div><h2 style="margin: 0;">Alex Rivers</h2><p style="margin: 0;">Senior SRE Consultant</p></div>
+            </div>
+          </div>
+          <!-- Section 2: Details (4 items layout) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Joined</h4><p>Jan 2024</p></div>
+            <div class="dash-card"><h4>Role</h4><p>Admin</p></div>
+            <div class="dash-card"><h4>Timezone</h4><p>UTC-5</p></div>
+            <div class="dash-card"><h4>Status</h4><p style="color: #10b981;">Online</p></div>
+          </div>
+          <!-- Section 3: Actions -->
+          <div class="grid-2">
+            <button class="btn btn-primary">Edit Profile</button>
+            <button class="btn btn-outline">Security Settings</button>
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="content-section" style="display: none;">
+          <!-- Section 1: General (4 items) -->
+          <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="dash-card"><h4>Language</h4><p>English</p></div>
+            <div class="dash-card"><h4>Currency</h4><p>USD</p></div>
+            <div class="dash-card"><h4>Theme</h4><p>Dark</p></div>
+            <div class="dash-card"><h4>RTL</h4><p>Off</p></div>
+          </div>
+          <!-- Section 2: Toggles -->
+          <div class="dash-card" style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1.5rem;">System Preferences</h3>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span>Auto-refresh metrics</span><span style="color: #10b981;">Enabled</span></div>
+            <div style="display: flex; justify-content: space-between;"><span>Slack Notifications</span><span style="color: #10b981;">Active</span></div>
+          </div>
+          <!-- Section 3: Advanced -->
+          <div class="dash-card"><h3>API Access</h3><button class="btn btn-outline">Generate New Key</button></div>
         </div>
 
       </div>

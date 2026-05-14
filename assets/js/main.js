@@ -16,55 +16,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Theme Toggle (Dark/Light)
-  const themeToggle = document.getElementById('themeToggle');
+  const themeToggles = document.querySelectorAll('.theme-toggle');
   const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+  const updateThemeUI = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeToggles.forEach(btn => {
+      btn.innerHTML = theme === "dark" ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+  };
+
   const currentTheme = localStorage.getItem("theme");
-  if (currentTheme == "dark" || (!currentTheme && prefersDarkScheme.matches)) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    if(themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
+    updateThemeUI("dark");
   } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    if(themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    updateThemeUI("light");
   }
 
-  if(themeToggle) {
-    themeToggle.addEventListener('click', () => {
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
       let theme = document.documentElement.getAttribute("data-theme");
-      if (theme === "dark") {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("theme", "light");
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-      }
+      const newTheme = theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      updateThemeUI(newTheme);
     });
-  }
+  });
 
   // RTL Toggle
-  const rtlToggle = document.getElementById('rtlToggle');
+  const rtlToggles = document.querySelectorAll('.rtl-toggle');
   const currentDir = localStorage.getItem('dir') || 'ltr';
   document.documentElement.setAttribute('dir', currentDir);
   
-  if(rtlToggle) {
-    // Initialize icon based on current direction
-    rtlToggle.innerHTML = currentDir === 'rtl' ? '<i class="fas fa-arrow-left-long"></i>' : '<i class="fas fa-arrow-right-long"></i>';
-
-    rtlToggle.addEventListener('click', () => {
+  rtlToggles.forEach(btn => {
+    btn.innerHTML = '<i class="fas fa-arrow-right-arrow-left"></i>';
+    btn.addEventListener('click', () => {
       let dir = document.documentElement.getAttribute('dir');
-      if(dir === 'ltr') {
-        document.documentElement.setAttribute('dir', 'rtl');
-        localStorage.setItem('dir', 'rtl');
-        rtlToggle.innerHTML = '<i class="fas fa-arrow-left-long"></i>';
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-        localStorage.setItem('dir', 'ltr');
-        rtlToggle.innerHTML = '<i class="fas fa-arrow-right-long"></i>';
-      }
+      const newDir = dir === 'ltr' ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', newDir);
+      localStorage.setItem('dir', newDir);
     });
-  }
+  });
 
   // Navbar Scroll & Progress
   const navbar = document.querySelector('.navbar');
@@ -91,9 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   if(hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('active');
       hamburger.classList.toggle('active');
+      const icon = hamburger.querySelector('i');
+      if (hamburger.classList.contains('active')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+      } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        const icon = hamburger.querySelector('i');
+        if(icon) icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+
+    // Close menu when clicking a link
+    const mobileLinks = navLinks.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        const icon = hamburger.querySelector('i');
+        if(icon) icon.classList.replace('fa-times', 'fa-bars');
+      });
     });
   }
 
@@ -179,4 +198,38 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', runCounter);
   runCounter();
+
+  // Portfolio Filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  if(filterBtns.length > 0 && portfolioItems.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.style.display = 'block';
+            // Trigger animation
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+              item.classList.add('active');
+            }, 10);
+          } else {
+            item.style.display = 'none';
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            item.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
 });

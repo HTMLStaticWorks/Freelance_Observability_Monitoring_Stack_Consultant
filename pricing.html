@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Pricing - Freelance Observability & Monitoring Stack Consultant</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,10 +30,18 @@
         <li><a href="pricing.html" class="active">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-theme-rtl">
+            <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary nav-cta-mobile">Login</a>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i
+            class="fas fa-arrow-right-arrow-left"></i></button>
         <a href="login.html" class="btn btn-primary nav-cta">Login</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
       </div>
@@ -40,17 +49,17 @@
   </nav>
 
   <!-- Section 1: Hero -->
-  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; align-items: flex-start; text-align: center;">
-    <div class="container">
-      <span class="badge" style="margin-bottom: 1rem;">Transparent Pricing</span>
-      <h1>Consulting <span class="text-gradient">Plans</span></h1>
-      <p style="max-width: 600px; margin: 0 auto;">No hidden fees. Just elite-level infrastructure optimization for teams serious about reliability.</p>
+  <section class="hero reveal" style="min-height: 80vh; padding-top: 120px; display: flex; align-items: center; position: relative; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('assets/images/pricing-hero.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #fff;">
+    <div class="container text-center">
+      <span class="badge" style="margin-bottom: 1rem; border-color: rgba(255,255,255,0.3); color: #fff; background: rgba(255,255,255,0.1);">Transparent Pricing</span>
+      <h1 style="color: #fff;">Consulting <span class="text-gradient">Plans</span></h1>
+      <p style="max-width: 800px; margin: 0 auto; font-size: 1.25rem; color: rgba(255,255,255,0.9); line-height: 1.8;">No hidden fees. Just elite-level infrastructure optimization for teams serious about reliability.</p>
     </div>
   </section>
 
   <!-- Section 2: Pricing Cards (Strictly 4) -->
-  <section class="reveal container" style="margin-top: -3rem; padding-top: 0;">
-    <div class="grid-4" style="align-items: center;">
+  <section class="reveal container" style="padding-top: 6rem; margin-top: 2rem;">
+    <div class="grid-4">
       <!-- Plan 1 -->
       <div class="card pricing-card glass tilt-card">
         <h3>Audit & Review</h3>
@@ -63,7 +72,7 @@
           <li><i class="fas fa-times" style="color: #ef4444;"></i> Hands-on Implementation</li>
           <li><i class="fas fa-times" style="color: #ef4444;"></i> Custom Dashboards</li>
         </ul>
-        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: auto;">Get Started</a>
       </div>
       
       <!-- Plan 2 -->
@@ -79,7 +88,7 @@
           <li><i class="fas fa-check"></i> Alert Routing & Slack Integration</li>
           <li><i class="fas fa-times" style="color: #ef4444;"></i> 24/7 SRE Support</li>
         </ul>
-        <a href="contact.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
+        <a href="contact.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Get Started</a>
       </div>
 
       <!-- Plan 3 -->
@@ -94,7 +103,7 @@
           <li><i class="fas fa-check"></i> Training Sessions</li>
           <li><i class="fas fa-times" style="color: #ef4444;"></i> Emergency Paging</li>
         </ul>
-        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: auto;">Get Started</a>
       </div>
 
       <!-- Plan 4 -->
@@ -109,13 +118,13 @@
           <li><i class="fas fa-check"></i> Incident Post-Mortems</li>
           <li><i class="fas fa-check"></i> Multi-Cloud HA Architecture</li>
         </ul>
-        <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Sales</a>
+        <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: auto;">Contact Sales</a>
       </div>
     </div>
   </section>
 
   <!-- Section 3: Feature Comparison -->
-  <section class="reveal container text-center">
+  <section class="reveal container text-center" style="padding-top: 8rem;">
     <div class="section-header">
       <h2>Plan Comparison</h2>
       <p>A detailed breakdown of what's included in every tier.</p>
@@ -158,33 +167,10 @@
     </div>
   </section>
 
-  <!-- Section 4: FAQ -->
-  <section class="reveal container" style="max-width: 800px;">
-    <div class="section-header text-center">
-      <h2>Pricing FAQs</h2>
-    </div>
-    <div class="accordion-item active">
-      <div class="accordion-header">Do you charge per server/node? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content" style="max-height: 200px;">
-        <p>No, we do not charge based on the scale of your infrastructure. Our consulting fees are based purely on the complexity of the project and the time required for implementation.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">What payment methods do you accept? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content">
-        <p>We accept wire transfers, major credit cards via Stripe, and crypto for enterprise clients.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">Is there a long-term commitment? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content">
-        <p>Only for the Retainer and Enterprise plans (minimum 3 months). Audit and Implementation are one-off engagements.</p>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Section 5: CTA -->
-  <section class="reveal glass" style="background: var(--primary-color); color: #fff; text-align: center; padding: 4rem 1.5rem; border-radius: var(--radius-lg); max-width: 1000px; margin: 0 auto 6rem;">
+  <section class="reveal glass" style="background: #0f172a; color: #fff; text-align: center; padding: 4rem 1.5rem; border-radius: var(--radius-lg); max-width: 1000px; margin: 6rem auto 8rem;">
     <h2>Not sure which plan is right for you?</h2>
     <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 1rem auto 2rem;">Book a free 30-minute discovery call to discuss your infrastructure challenges.</p>
     <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem;">Schedule Call</a>

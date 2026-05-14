@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Home 2 Premium - Freelance Observability & Monitoring Stack Consultant</title>
 
   <!-- Fonts -->
@@ -171,9 +172,128 @@
       }
     }
 
-    /* Fix nav link color since background is dark */
     [data-theme="dark"] .navbar.scrolled {
       background: rgba(2, 6, 23, 0.8) !important;
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-large, .bento-wide {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      .pipeline-flow {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .pipeline-line, .pipeline-dot {
+        display: none;
+      }
+      .bento-item {
+        text-align: center;
+      }
+      .bento-item div {
+        justify-content: center;
+      }
+      .bento-wide h2 {
+        font-size: 2.5rem !important;
+      }
+    }
+
+    .framework-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+
+    .framework-row {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .framework-text, .framework-list {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .framework-h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .framework-p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .framework-ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .framework-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .list-left {
+      border-left: 2px solid var(--border-color);
+      padding-left: 4rem;
+    }
+
+    .list-right {
+      border-right: 2px solid var(--border-color);
+      padding-right: 4rem;
+      text-align: right;
+    }
+
+    .list-yellow {
+      border-left-color: #fbbf24;
+    }
+
+    .item-right {
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 768px) {
+      .framework-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+      }
+      .framework-text, .framework-list {
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+      }
+      .framework-ul {
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 1.5rem 0 !important;
+        width: 100% !important;
+      }
+      .framework-item {
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+      .item-right {
+        justify-content: center !important;
+        flex-direction: row !important; /* Keep icon and text on same line but centered */
+      }
     }
   </style>
 </head>
@@ -197,10 +317,17 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-theme-rtl">
+            <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary nav-cta-mobile">Login</a>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button>
-        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i
             class="fas fa-arrow-right-arrow-left"></i></button>
         <a href="login.html" class="btn btn-primary nav-cta">Login</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
@@ -381,45 +508,45 @@
       <p>A holistic approach to observability that goes beyond simple metrics.</p>
     </div>
     
-    <div style="display: flex; flex-direction: column; gap: 4rem; margin-top: 4rem;">
-      <div style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--secondary-color);">01. Infrastructure Audit</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">We begin by analyzing your current monitoring gaps and alert noise. Our deep-dive audit identifies blind spots in your distributed systems before they become outages.</p>
+    <div class="framework-container">
+      <div class="framework-row">
+        <div class="framework-text">
+          <h3 class="framework-h3" style="color: var(--secondary-color);">01. Infrastructure Audit</h3>
+          <p class="framework-p">We begin by analyzing your current monitoring gaps and alert noise. Our deep-dive audit identifies blind spots in your distributed systems before they become outages.</p>
         </div>
-        <div style="flex: 1; min-width: 300px; border-left: 2px solid var(--secondary-color); padding-left: 4rem;">
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Latency Profiling & Optimization</li>
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Resource Bottleneck Identification</li>
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 15px;"></i> Alert Fatigue Reduction Analysis</li>
+        <div class="framework-list list-left">
+          <ul class="framework-ul">
+            <li class="framework-item"><i class="fas fa-check" style="color: var(--secondary-color);"></i> Latency Profiling & Optimization</li>
+            <li class="framework-item"><i class="fas fa-check" style="color: var(--secondary-color);"></i> Resource Bottleneck Identification</li>
+            <li class="framework-item"><i class="fas fa-check" style="color: var(--secondary-color);"></i> Alert Fatigue Reduction Analysis</li>
           </ul>
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 4rem; flex-direction: row-reverse; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--accent-color);">02. Stack Optimization</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">Implementation of high-performance Prometheus exporters, specialized Grafana dashboards, and multi-tenant logging pipelines tailored for your specific scale.</p>
+      <div class="framework-row row-reverse">
+        <div class="framework-text">
+          <h3 class="framework-h3" style="color: var(--accent-color);">02. Stack Optimization</h3>
+          <p class="framework-p">Implementation of high-performance Prometheus exporters, specialized Grafana dashboards, and multi-tenant logging pipelines tailored for your specific scale.</p>
         </div>
-        <div style="flex: 1; min-width: 300px; border-right: 2px solid var(--accent-color); padding-right: 4rem; text-align: right;">
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-            <li style="display: flex; align-items: center; justify-content: flex-end;">Custom Exporter Development <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
-            <li style="display: flex; align-items: center; justify-content: flex-end;">High-Cardinality Query Tuning <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
-            <li style="display: flex; align-items: center; justify-content: flex-end;">Optimized Storage Retention Policies <i class="fas fa-check" style="color: var(--accent-color); margin-left: 15px;"></i></li>
+        <div class="framework-list list-right">
+          <ul class="framework-ul">
+            <li class="framework-item item-right">Custom Exporter Development <i class="fas fa-check" style="color: var(--accent-color);"></i></li>
+            <li class="framework-item item-right">High-Cardinality Query Tuning <i class="fas fa-check" style="color: var(--accent-color);"></i></li>
+            <li class="framework-item item-right">Optimized Storage Retention Policies <i class="fas fa-check" style="color: var(--accent-color);"></i></li>
           </ul>
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #fbbf24;">03. Continuous SRE Support</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">We don't just build it and leave. Our ongoing SRE consulting ensures your team is empowered with the right runbooks and automated incident response strategies.</p>
+      <div class="framework-row">
+        <div class="framework-text">
+          <h3 class="framework-h3" style="color: #fbbf24;">03. Continuous SRE Support</h3>
+          <p class="framework-p">We don't just build it and leave. Our ongoing SRE consulting ensures your team is empowered with the right runbooks and automated incident response strategies.</p>
         </div>
-        <div style="flex: 1; min-width: 300px; border-left: 2px solid #fbbf24; padding-left: 4rem;">
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> SLI/SLO Performance Management</li>
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> Automated Incident Post-mortems</li>
-            <li style="display: flex; align-items: center;"><i class="fas fa-check" style="color: #fbbf24; margin-right: 15px;"></i> Proactive Chaos Engineering</li>
+        <div class="framework-list list-left list-yellow">
+          <ul class="framework-ul">
+            <li class="framework-item"><i class="fas fa-check" style="color: #fbbf24;"></i> SLI/SLO Performance Management</li>
+            <li class="framework-item"><i class="fas fa-check" style="color: #fbbf24;"></i> Automated Incident Post-mortems</li>
+            <li class="framework-item"><i class="fas fa-check" style="color: #fbbf24;"></i> Proactive Chaos Engineering</li>
           </ul>
         </div>
       </div>

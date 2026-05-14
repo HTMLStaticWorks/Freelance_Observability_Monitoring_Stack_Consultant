@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>About - Freelance Observability & Monitoring Stack Consultant</title>
   
   <!-- Fonts -->
@@ -32,10 +33,18 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-theme-rtl">
+            <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary nav-cta-mobile">Login</a>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i
+            class="fas fa-arrow-right-arrow-left"></i></button>
         <a href="login.html" class="btn btn-primary nav-cta">Login</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
       </div>
@@ -51,28 +60,14 @@
     </div>
   </section>
 
-  <!-- Section 2: Mission & Vision -->
-  <section class="reveal container">
-    <div class="grid-2">
-      <div class="card glass tilt-card">
-        <div class="card-icon" style="background: rgba(59,130,246,0.1); color: var(--secondary-color);"><i class="fas fa-bullseye"></i></div>
-        <h3 class="card-title">Our Mission</h3>
-        <p class="card-desc">To democratize enterprise-grade observability. We believe every engineering team deserves deep visibility into their stack, eliminating blind spots and empowering them to ship faster with confidence.</p>
-      </div>
-      <div class="card glass tilt-card">
-        <div class="card-icon" style="background: rgba(16,185,129,0.1); color: var(--accent-color);"><i class="fas fa-eye"></i></div>
-        <h3 class="card-title">Our Vision</h3>
-        <p class="card-desc">A future where infrastructure incidents are predicted and resolved automatically before users are affected. We strive to make "zero downtime" the standard, not the exception.</p>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Section 3: SRE Philosophy -->
-  <section class="reveal glass" style="background: var(--primary-color); color: #fff;">
+  <section class="reveal glass" style="background: #0f172a; color: #fff;">
     <div class="container">
       <div class="grid-2" style="align-items: center;">
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Abstract Code" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 0 40px rgba(59,130,246,0.5);">
+          <img src="assets/images/tracing-apm.png" alt="APM Tracing Visualization" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 0 40px rgba(59,130,246,0.5);">
         </div>
         <div>
           <span class="section-subtitle" style="color: var(--accent-color);">The Core Tenets</span>
@@ -156,50 +151,34 @@
       <div class="grid-4">
         <!-- Team Card 1 -->
         <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Lead SRE" style="width: 100%; height: 250px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Alex Mercer" style="width: 100%; height: 250px; object-fit: cover; object-position: top;">
           <div style="padding: 1.5rem;">
             <h3 style="margin-bottom: 0.5rem;">Alex Mercer</h3>
             <p style="color: var(--secondary-color); font-weight: 600;">Lead SRE Consultant</p>
-            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
-            </div>
           </div>
         </div>
         <!-- Team Card 2 -->
         <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Observability Architect" style="width: 100%; height: 250px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Sarah Chen" style="width: 100%; height: 250px; object-fit: cover; object-position: top;">
           <div style="padding: 1.5rem;">
             <h3 style="margin-bottom: 0.5rem;">Sarah Chen</h3>
             <p style="color: var(--secondary-color); font-weight: 600;">Observability Architect</p>
-            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
-            </div>
           </div>
         </div>
         <!-- Team Card 3 -->
         <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="DevOps Engineer" style="width: 100%; height: 250px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="David Kumar" style="width: 100%; height: 250px; object-fit: cover; object-position: top;">
           <div style="padding: 1.5rem;">
             <h3 style="margin-bottom: 0.5rem;">David Kumar</h3>
             <p style="color: var(--secondary-color); font-weight: 600;">Sr. DevOps Engineer</p>
-            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
-            </div>
           </div>
         </div>
         <!-- Team Card 4 -->
         <div class="card text-center tilt-card" style="padding: 0; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Grafana Expert" style="width: 100%; height: 250px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Elena Rossi" style="width: 100%; height: 250px; object-fit: cover; object-position: top;">
           <div style="padding: 1.5rem;">
             <h3 style="margin-bottom: 0.5rem;">Elena Rossi</h3>
             <p style="color: var(--secondary-color); font-weight: 600;">Grafana UX Specialist</p>
-            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" style="width: 30px; height: 30px;"><i class="fab fa-github"></i></a>
-            </div>
           </div>
         </div>
       </div>

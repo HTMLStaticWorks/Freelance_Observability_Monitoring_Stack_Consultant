@@ -139,7 +139,7 @@ section {
 .brand {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--primary-color);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -193,6 +193,12 @@ section {
   border: none;
   font-size: 1.5rem;
   color: #0f172a;
+  z-index: 1001;
+  transition: var(--transition);
+}
+
+.hamburger.active i::before {
+  content: "\f00d";
 }
 
 .nav-actions {
@@ -680,25 +686,120 @@ footer {
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 768px) {
+.mobile-nav-actions {
+  display: none;
+}
+
+@media (max-width: 1024px) {
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 0;
     left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
+    width: 280px;
+    height: 100vh;
     background: var(--card-bg);
     flex-direction: column;
-    padding: 2rem;
+    padding: 5rem 1.5rem 2rem;
     transition: var(--transition);
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: var(--shadow-lg);
+    gap: 1.5rem;
   }
   .nav-links.active { left: 0; }
   .hamburger { display: block; }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-actions .theme-toggle,
+  .nav-actions .rtl-toggle,
+  .nav-actions .nav-cta {
+    display: none;
+  }
+
+  .mobile-nav-actions {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    list-style: none;
+  }
+
+  .mobile-theme-rtl {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-cta-mobile {
+    width: 100%;
+    text-align: center;
+  }
+
   .grid-4, .grid-2 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   h1 { font-size: 2.5rem; }
 }
+
+@media (max-width: 768px) {
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+  .hero-btns .btn {
+    width: 100%;
+  }
+
+  footer {
+    text-align: center;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .brand {
+    justify-content: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+  .footer-links {
+    padding: 0;
+  }
+  .newsletter-form {
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+
+
 
 /* Skeleton Loading */
 .skeleton {
@@ -764,6 +865,16 @@ footer {
   border-color: var(--secondary-color);
 }
 
+.portfolio-item {
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+
 /* Stats Counter */
 .counter-box {
   text-align: center;
@@ -827,6 +938,20 @@ footer {
   overflow: hidden;
 }
 
+.auth-controls {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  gap: 1rem;
+}
+
+[dir="rtl"] .auth-controls {
+  right: auto;
+  left: 2rem;
+}
+
 .auth-card {
   width: 100%;
   max-width: 450px;
@@ -834,6 +959,68 @@ footer {
   border-radius: var(--radius-lg);
   z-index: 1;
 }
+
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remember-me input {
+  accent-color: var(--secondary-color);
+}
+
+.remember-me label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.forgot-password {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+  
+  .auth-controls {
+    position: static;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 0.5rem;
+  }
+  
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-options {
+    gap: 10px;
+  }
+
+  .remember-me label, .forgot-password {
+    font-size: 0.8rem;
+  }
+}
+
+
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -880,7 +1067,7 @@ footer {
 
 .popular-badge {
   position: absolute;
-  top: 0;
+  top: 12px;
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--secondary-color);
@@ -918,4 +1105,235 @@ footer {
 
 .pricing-features i {
   color: var(--accent-color);
+}
+
+/* Spotlight Section Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.spotlight-section .tilt-card {
+  transition: transform 0.2s ease-out;
+}
+
+.spotlight-section .badge {
+  display: inline-block;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+  .spotlight-section {
+    padding: 6rem 0 !important;
+  }
+  .spotlight-section .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .spotlight-section .spotlight-content {
+    text-align: center;
+  }
+  .spotlight-section .spotlight-content p {
+    margin: 0 auto 3rem;
+  }
+  .spotlight-section .spotlight-features {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Workflow Section */
+.workflow-section {
+  padding-top: 8rem;
+  margin-bottom: 10rem;
+}
+
+.workflow-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.workflow-line {
+  position: absolute;
+  top: 45px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secondary-color), var(--accent-color), transparent);
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.workflow-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.workflow-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  color: var(--secondary-color);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  transition: var(--transition);
+}
+
+.workflow-card:hover .workflow-icon {
+  transform: translateY(-5px) scale(1.05);
+  border-color: var(--secondary-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.workflow-step-number {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: var(--secondary-color);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.workflow-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.workflow-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Mobile Workflow Responsiveness */
+@media (max-width: 1024px) {
+  .workflow-section {
+    padding-top: 6rem;
+    margin-bottom: 6rem;
+  }
+  .workflow-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+  .workflow-line {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .workflow-section {
+    padding-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  .workflow-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  /* Adding a vertical line for mobile flow */
+  .workflow-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    bottom: 50px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--secondary-color), var(--accent-color), transparent);
+    opacity: 0.1;
+    z-index: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-container {
+    gap: 3.5rem;
+  }
+  .workflow-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 1.75rem;
+  }
+}
+
+/* Reliability Badge (Portfolio Spotlight) */
+.reliability-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 1.2rem 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  animation: float 4s infinite ease-in-out;
+}
+
+.reliability-badge .badge-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.reliability-badge .badge-label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .reliability-badge {
+    bottom: 15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: fit-content;
+    white-space: nowrap;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .reliability-badge .badge-value {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reliability-badge {
+    bottom: 10px;
+    padding: 0.6rem 1rem;
+  }
+  .reliability-badge .badge-value {
+    font-size: 1.2rem;
+  }
+  .reliability-badge .badge-label {
+    font-size: 0.6rem;
+  }
 }

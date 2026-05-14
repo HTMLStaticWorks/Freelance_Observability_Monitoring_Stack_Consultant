@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Service Details - Freelance Observability & Monitoring Stack Consultant</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,10 +30,18 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-theme-rtl">
+            <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary nav-cta-mobile">Login</a>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <button class="btn-icon" id="rtlToggle" aria-label="Toggle RTL"><i class="fas fa-arrow-right-arrow-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL"><i
+            class="fas fa-arrow-right-arrow-left"></i></button>
         <a href="login.html" class="btn btn-primary nav-cta">Login</a>
         <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
       </div>
@@ -40,34 +49,91 @@
   </nav>
 
   <!-- Section 1: Hero -->
-  <section class="hero reveal" style="min-height: 50vh; padding-top: 120px; align-items: flex-start; text-align: center; background: radial-gradient(circle at top, rgba(59,130,246,0.1), transparent 70%);">
+  <section class="hero reveal" id="serviceHero" style="min-height: 40vh; padding-top: 120px; display: flex; align-items: center; text-align: center; background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; color: #fff;">
     <div class="container">
       <span class="badge" style="margin-bottom: 1rem;">Service Details</span>
-      <h1>Grafana <span class="text-gradient">Dashboard Design</span></h1>
-      <p style="max-width: 600px; margin: 0 auto 2rem;">Transforming complex multi-dimensional metrics into intuitive, actionable, and visually stunning UI panels.</p>
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Grafana UI" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      <h1 id="serviceTitle" style="color: #fff;">Service <span class="text-gradient">Details</span></h1>
+      <p id="serviceSubtitle" style="max-width: 600px; margin: 0 auto 2rem; color: rgba(255,255,255,0.9);">Explore our deep-dive solutions for your observability needs.</p>
     </div>
   </section>
 
-  <!-- Section 2: Service Overview -->
-  <section class="reveal container" style="margin-top: 2rem;">
-    <div class="grid-2" style="align-items: center;">
-      <div>
-        <span class="section-subtitle">Overview</span>
-        <h2>Not Just Charts, But Intelligence</h2>
-        <p>A poorly designed dashboard is just as bad as having no monitoring at all. If engineers can't instantly identify the root cause of an issue by looking at a screen, the dashboard has failed.</p>
-        <p>We apply UX/UI principles to infrastructure data. We use the RED method (Rate, Errors, Duration) and USE method (Utilization, Saturation, Errors) to structure dashboards that guide the eye directly to anomalies.</p>
+  <!-- Section 2: Service Visual & Details (Below Hero) -->
+  <section class="reveal container" style="padding-top: 4rem;">
+    <div class="grid-2" style="align-items: center; gap: 4rem;">
+      <div id="serviceImageContainer">
+        <img id="serviceImage" src="assets/images/service-grafana.png" alt="Service Detail" class="skeleton" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); transition: var(--transition); object-fit: cover; min-height: 400px;">
       </div>
-      <div class="card glass tilt-card" style="background: var(--primary-color); color: #fff;">
-        <h3 style="color: #fff; margin-bottom: 1rem;">Expected Outcomes</h3>
-        <ul style="list-style: none;">
-          <li style="margin-bottom: 1rem; display: flex; gap: 10px;"><i class="fas fa-arrow-down" style="color: var(--accent-color); margin-top: 5px;"></i> <div><strong>Decreased MTTR:</strong> Faster incident resolution through correlated data.</div></li>
-          <li style="margin-bottom: 1rem; display: flex; gap: 10px;"><i class="fas fa-arrow-up" style="color: var(--accent-color); margin-top: 5px;"></i> <div><strong>Higher Adoption:</strong> Developers actually want to use the monitoring tools.</div></li>
-          <li style="display: flex; gap: 10px;"><i class="fas fa-compress-arrows-alt" style="color: var(--accent-color); margin-top: 5px;"></i> <div><strong>Reduced Tool Sprawl:</strong> Consolidating disparate tools into a single pane of glass.</div></li>
-        </ul>
+      <div id="serviceInfo">
+        <span class="section-subtitle" id="serviceCategory">Consulting</span>
+        <h2 id="serviceHeading">Deep-Dive Analysis</h2>
+        <p id="serviceDescription" style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">Loading comprehensive service details...</p>
+        
+        <div class="card glass" style="margin-top: 2rem; background: var(--card-bg); padding: 1.5rem;">
+          <h4 style="margin-bottom: 1rem;">Core Benefits</h4>
+          <ul id="serviceBenefits" style="list-style: none; font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Performance Optimization</li>
+            <li style="margin-bottom: 0.75rem;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Cost Reduction Strategies</li>
+            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> 24/7 Monitoring Support</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get('service') || 'grafana';
+
+      const serviceData = {
+        prometheus: {
+          title: 'Prometheus <span class="text-gradient">Setup</span>',
+          subtitle: 'High-performance metrics collection and storage optimized for enterprise scale.',
+          category: 'Infrastructure',
+          heading: 'Scalable Monitoring Architecture',
+          description: 'Our Prometheus setup focuses on high availability and long-term retention. We implement Thanos or Cortex clusters to provide a global view across all your Kubernetes environments, ensuring zero data loss and sub-second query performance. We specialize in optimizing scraping intervals and storage schemas to keep costs low without sacrificing visibility.',
+          image: 'assets/images/Monitoring Stack.png'
+        },
+        grafana: {
+          title: 'Grafana <span class="text-gradient">Dashboard Design</span>',
+          subtitle: 'Transforming complex multi-dimensional metrics into intuitive, actionable UI panels.',
+          category: 'Visualization',
+          heading: 'Intelligence Through Design',
+          description: 'A poorly designed dashboard is just as bad as having no monitoring at all. We apply UX/UI principles to infrastructure data, using standardized methods like RED and USE to structure dashboards that guide the eye directly to anomalies. This reduces incident resolution time (MTTR) by allowing engineers to identify root causes in seconds.',
+          image: 'assets/images/Grafana Design.png'
+        },
+        logging: {
+          title: 'Logging <span class="text-gradient">Pipelines</span>',
+          subtitle: 'Centralized log management capable of handling terabytes of events daily.',
+          category: 'Data Engineering',
+          heading: 'Unified Log Aggregation',
+          description: 'Stop searching through individual server logs. We build scalable ELK/EFK or Loki pipelines that aggregate logs from every container and microservice. This allows for rapid pattern recognition, security auditing, and forensic analysis during post-mortem investigations. We ensure your logs are parsed and indexed efficiently for lightning-fast queries.',
+          image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200'
+        },
+        slo: {
+          title: 'SLI/SLO <span class="text-gradient">Consulting</span>',
+          subtitle: 'Data-driven reliability engineering to balance innovation and stability.',
+          category: 'SRE Strategy',
+          heading: 'Precision Reliability Metrics',
+          description: 'We help you move beyond simple "uptime" stats. By defining measurable Service Level Indicators (SLIs) that reflect actual user journeys, we establish clear objectives (SLOs) that align business and engineering. Managing error budgets allows your team to ship features faster with the confidence that your service reliability is protected.',
+          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
+        }
+      };
+
+      const data = serviceData[service] || serviceData.grafana;
+
+      document.getElementById('serviceTitle').innerHTML = data.title;
+      document.getElementById('serviceSubtitle').innerText = data.subtitle;
+      document.getElementById('serviceCategory').innerText = data.category;
+      document.getElementById('serviceHeading').innerText = data.heading;
+      document.getElementById('serviceDescription').innerText = data.description;
+      document.getElementById('serviceImage').src = data.image;
+      document.getElementById('serviceImage').alt = data.heading;
+      
+      // Update document title
+      document.title = `${service.charAt(0).toUpperCase() + service.slice(1)} Details - SRE Consult`;
+    });
+  </script>
 
   <!-- Section 3: Features Grid (Strictly 4 Cards) -->
   <section class="reveal glass" style="margin-bottom: 0;">
@@ -101,58 +167,55 @@
   </section>
 
   <!-- Section 4: Monitoring Workflow -->
-  <section class="reveal container text-center">
-    <div class="section-header">
-      <h2>The Implementation Workflow</h2>
-    </div>
-    <div class="grid-4">
-      <div class="card glass">
-        <h2 style="color: var(--secondary-color); font-size: 3rem; margin-bottom: 1rem;">1</h2>
-        <h4>Metrics Audit</h4>
-        <p style="font-size: 0.9rem;">Reviewing existing PromQL queries and data structures.</p>
-      </div>
-      <div class="card glass">
-        <h2 style="color: var(--secondary-color); font-size: 3rem; margin-bottom: 1rem;">2</h2>
-        <h4>Wireframing</h4>
-        <p style="font-size: 0.9rem;">Designing the layout and flow of the dashboard hierarchy.</p>
-      </div>
-      <div class="card glass">
-        <h2 style="color: var(--secondary-color); font-size: 3rem; margin-bottom: 1rem;">3</h2>
-        <h4>Development</h4>
-        <p style="font-size: 0.9rem;">Building panels, optimizing queries, and applying styles.</p>
-      </div>
-      <div class="card glass">
-        <h2 style="color: var(--secondary-color); font-size: 3rem; margin-bottom: 1rem;">4</h2>
-        <h4>Testing</h4>
-        <p style="font-size: 0.9rem;">Load testing queries to ensure dashboards render instantly.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: FAQ Accordion -->
-  <section class="reveal container" style="max-width: 800px; margin-bottom: 6rem;">
+  <section class="reveal container workflow-section">
     <div class="section-header text-center">
-      <h2>Frequently Asked Questions</h2>
+      <span class="badge" style="margin-bottom: 1rem;">Our Process</span>
+      <h2>The Implementation <span class="text-gradient">Workflow</span></h2>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-light);">Our systematic, battle-tested approach to building production-grade observability for enterprise environments.</p>
     </div>
     
-    <div class="accordion-item active">
-      <div class="accordion-header">Do you optimize slow queries? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content" style="max-height: 200px;">
-        <p>Yes, we heavily refactor PromQL/LogQL queries using recording rules to ensure dashboards load in under 1 second, even with high-cardinality data.</p>
+    <div class="workflow-container">
+      <!-- Connecting Line (Desktop) -->
+      <div class="workflow-line"></div>
+      
+      <!-- Step 1 -->
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <i class="fas fa-magnifying-glass-chart"></i>
+          <span class="workflow-step-number">1</span>
+        </div>
+        <h3>Metrics Audit</h3>
+        <p>In-depth review of existing PromQL queries and data structures for efficiency.</p>
       </div>
-    </div>
-    
-    <div class="accordion-item">
-      <div class="accordion-header">Can you integrate non-Prometheus data sources? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content">
-        <p>Absolutely. We regularly integrate CloudWatch, Datadog, Elasticsearch, PostgreSQL, and custom JSON APIs into unified Grafana views.</p>
-      </div>
-    </div>
 
-    <div class="accordion-item">
-      <div class="accordion-header">Do you manage the Grafana instance? <i class="fas fa-chevron-down accordion-icon" style="transition: transform 0.3s;"></i></div>
-      <div class="accordion-content">
-        <p>We can. We offer fully managed setups, or we can deploy into your existing Kubernetes clusters or Grafana Cloud accounts.</p>
+      <!-- Step 2 -->
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <i class="fas fa-object-group"></i>
+          <span class="workflow-step-number">2</span>
+        </div>
+        <h3>Wireframing</h3>
+        <p>Designing the logical layout and flow of the dashboard hierarchy.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <i class="fas fa-terminal"></i>
+          <span class="workflow-step-number">3</span>
+        </div>
+        <h3>Development</h3>
+        <p>Building panels, optimizing queries, and applying custom themes.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="workflow-card">
+        <div class="workflow-icon">
+          <i class="fas fa-vial-circle-check"></i>
+          <span class="workflow-step-number">4</span>
+        </div>
+        <h3>Testing</h3>
+        <p>Rigorous load testing to ensure dashboards render instantly at scale.</p>
       </div>
     </div>
   </section>

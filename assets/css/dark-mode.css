@@ -5,7 +5,7 @@
   --accent-color: #10b981;
   --bg-color: #0f172a;
   --text-color: #f8fafc;
-  --text-light: #94a3b8;
+  --text-light: #e2e8f0; /* Changed from #94a3b8 to be more visible */
   --card-bg: #1e293b;
   --border-color: #334155;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
@@ -13,6 +13,44 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
   --glass-bg: rgba(15, 23, 42, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure all paragraphs and light text are white/light in dark mode */
+[data-theme="dark"] p, 
+[data-theme="dark"] span,
+[data-theme="dark"] small,
+[data-theme="dark"] .text-light,
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .card-desc,
+[data-theme="dark"] .footer-links a,
+[data-theme="dark"] .sidebar-nav a {
+  color: #e2e8f0 !important; /* High contrast light gray/white */
+}
+
+[data-theme="dark"] strong,
+[data-theme="dark"] b,
+[data-theme="dark"] label {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .dashboard-sidebar,
+[data-theme="dark"] .dashboard-topbar,
+[data-theme="dark"] .dash-card {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .dashboard-main {
+  background: var(--bg-color);
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] .glass {
@@ -29,7 +67,10 @@
   background: rgba(30, 41, 59, 0.9);
 }
 
-[data-theme="dark"] .navbar .brand,
+[data-theme="dark"] .brand {
+  color: #ffffff !important;
+}
+
 [data-theme="dark"] .navbar .nav-links a,
 [data-theme="dark"] .navbar .btn-icon,
 [data-theme="dark"] .navbar .hamburger {
